@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="{% url 'all_books' %}">All Books</a>
                 <a class="nav-link" href="#">Pricing</a>
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </div>
@@ -41,22 +41,11 @@
         </div>
     </nav>
 
-<main> 
-    <div class="hero" 
-        style="background-image: url('{% static 'images/hero.png' %}');
-                background-size: cover;
-                background-position: center;
-                height: 50vh;"> 
-        <div class="hero-text">
-            <h1 >The Book Nook</h1>
-            <p>Explore the world of books</p>
-        </div>
-    </div>
 
 
     {% block content %}
     {% endblock %}
-</main>
+
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-light text-center">
