@@ -10,7 +10,7 @@ class Book(models.Model):
     synopsis = models.TextField()
     genre = models.TextField()
     # slug = models.SlugField(max_length=250, blank=True)  # No jls_extract_var
-    # book_cover = models.ImageField(upload_to='book_covers/', blank=True, null=True)
+    book_cover = models.ImageField(upload_to='book_covers/', blank=True, null=True)
     part_of_series = models.BooleanField(choices=YES_NO_CHOICES, default=False)
     ISBN = models.CharField(max_length=20, null=True)
 
