@@ -1,8 +1,10 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
 
-class HomePage(TemplateView):
-    """
-    Displays home page"
-    """
-    template_name = 'index.html'
+
+from django.views import generic
+from .models import Book
+
+class BookList(generic.ListView):
+    queryset =Book.objects.all()
+    template_name = "book_list.html"
+
+    

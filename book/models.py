@@ -9,10 +9,11 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     synopsis = models.TextField()
     genre = models.TextField()
-    # slug = models.SlugField(max_length=250, blank=True)  # No jls_extract_var
+    slug = models.SlugField(max_length=250, blank=True)  # No jls_extract_var
     book_cover = models.ImageField(upload_to='book_covers/', blank=True, null=True)
     part_of_series = models.BooleanField(choices=YES_NO_CHOICES, default=False)
     ISBN = models.CharField(max_length=20, null=True)
+    Featured = models.BooleanField(default=False)
 
     # Creates a slug if one is not supplied
     def save(self, *args, **kwargs):

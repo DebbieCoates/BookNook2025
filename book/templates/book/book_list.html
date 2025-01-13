@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- 
+    <h1>Book list</h1>
+
+    {% for book in object_list %}
+        <h2>{{book.title}}</h2>
+        <p>{{book.synopsis}}</p>
+        <p>Author: {{book.author}}</p>
+        {% endfor %} -->
+    <div class="container">
+        <h1>Book list</h1>
+        <div class="row">
+            {% for book in object_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ book.title }}</h5>
+                            <p class="card-text">{{ book.synopsis }}</p>
+                            <p class="card-text"><small class="text-muted">Author: {{ book.author }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+
