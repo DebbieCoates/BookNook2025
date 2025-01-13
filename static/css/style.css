@@ -1,5 +1,28 @@
-h1 {
-    color: red;
+
+/* Ensure the page takes the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* The wrapper will take up the full height of the viewport */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* Main content will take the remaining space */
+main {
+    flex: 1;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333; /* Set the footer background */
+    color: white;            /* Set the footer text color */
+    padding: 1rem;
+    text-align: center;
 }
 
 .hero {
