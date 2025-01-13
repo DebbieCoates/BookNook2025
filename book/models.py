@@ -13,7 +13,7 @@ class Book(models.Model):
     book_cover = models.ImageField(upload_to='book_covers/', blank=True, null=True)
     part_of_series = models.BooleanField(choices=YES_NO_CHOICES, default=False)
     ISBN = models.CharField(max_length=20, null=True)
-    Featured = models.BooleanField(default=False)
+    featured = models.BooleanField(default=False)
 
     # Creates a slug if one is not supplied
     def save(self, *args, **kwargs):
