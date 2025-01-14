@@ -3,18 +3,21 @@
 from django.views import generic
 from .models import Book
 
+
+# FEATURED BOOKS ON MAIN PAGE
 class BookList(generic.ListView):
-    model = Book
-    template_name = "book_list.html"
-    
-    # Filter queryset to only include featured books
-    queryset = Book.objects.filter(featured=True)
-    
+    template_name = "book/book_list.html"
+    queryset = Book.objects.filter(featured=True).order_by('id')[:3]
+    paginate_by = 10  
 
-
+# ALL BOOKS
 class AllBooks(generic.ListView):
+    template_name = "book/all_books.html"
+    queryset = Book.objects.all()
+    paginate_by = 10  # Show 10 books per page
+
+# SINGLE BOOK LISTING
+class SingleBookListing(generic.DetailView):
     model = Book
-    template_name = "book_list.html"
-    
-    # Include All Books
-    queryset =Book.objects.all()
+    template_name = 'book/single_book_listing.html'  # Specify your template here
+    context_object_name = 'book'  # This defines the context variable that will be used in the template
