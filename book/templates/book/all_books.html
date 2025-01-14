@@ -28,20 +28,42 @@
     </div>
 
     <!-- Pagination controls -->
-    <div class="pagination">
-        <span class="step-links">
-            {% if object_list.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ object_list.previous_page_number }}">previous</a>
-            {% endif %}
-            <span class="current">
-                Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-            </span>
-            {% if object_list.has_next %}
-                <a href="?page={{ object_list.next_page_number }}">next</a>
-                <a href="?page={{ object_list.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
+
+    
+    {% if is_paginated %}
+    <div class="pagination-info text-center mb-3">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        &laquo; PREVIOUS
+                    </a>
+                </li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active">
+                        <a class="page-link" href="#">{{ num }}</a>
+                    </li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        NEXT &raquo;
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+
 </main>
 {% endblock %}

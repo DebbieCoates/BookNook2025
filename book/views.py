@@ -8,13 +8,12 @@ from .models import Book
 class BookList(generic.ListView):
     template_name = "book/book_list.html"
     queryset = Book.objects.filter(featured=True).order_by('id')[:3]
-    paginate_by = 10  
 
 # ALL BOOKS
 class AllBooks(generic.ListView):
     template_name = "book/all_books.html"
     queryset = Book.objects.all()
-    paginate_by = 10  # Show 10 books per page
+    paginate_by = 6  # Show 10 books per page
 
 # SINGLE BOOK LISTING
 class SingleBookListing(generic.DetailView):
