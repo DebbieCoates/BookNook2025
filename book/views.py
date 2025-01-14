@@ -3,7 +3,6 @@
 from django.views import generic
 from .models import Book
 
-
 # FEATURED BOOKS ON MAIN PAGE
 class BookList(generic.ListView):
     template_name = "book/book_list.html"
