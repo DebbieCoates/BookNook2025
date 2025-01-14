@@ -20,18 +20,19 @@
                     {% for book in object_list %}
                         <div class="col-md-4">
                             <div class="card mb-4">
-                                <a href="{% url 'single_book_listing' pk=book.pk %}">
+
+                                <!-- <a href="{% url 'single_book_listing' pk=book.pk %}">
                                     <img src="{{ book.book_cover.url }}" class="card-img-top" alt="{{ book.title }}">
-                                </a>
+                                </a> -->
 
                                 <!-- Check if the book has a cover, otherwise show a placeholder -->
-                                {% if book.book_cover %}
+                                <!-- {% if book.book_cover %}
                                 <img src="{{ book.book_cover.url }}" class="card-img-top" alt="{{ book.title }}">
                                     {% else %}
                                 <div class="card-img-top text-center">
                                     <p>No Cover Listed</p>
                                 </div>
-                                {% endif %}
+                                {% endif %} -->
 
                                 <div class="card-body">
                                         <h5 class="card-title">{{ book.title }}</h5>

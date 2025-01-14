@@ -12,9 +12,11 @@
         {% for book in object_list %}
             <div class="col-md-4">
                 <div class="card mb-4">
+
                     <a href="{% url 'single_book_listing' pk=book.pk %}">
                         <img src="{{ book.book_cover.url }}" class="card-img-top" alt="{{ book.title }}">
                     </a>
+
                     <div class="card-body">
                         <h5 class="card-title">{{ book.title }}</h5>
                         <p class="card-text">{{ book.synopsis|truncatewords:15 }}</p>
