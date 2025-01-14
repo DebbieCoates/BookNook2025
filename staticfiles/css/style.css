@@ -1,3 +1,57 @@
-h1 {
-    color: red;
+
+/* Ensure the page takes the full height */
+html, body {
+    height: 100%;
+    margin: 0;
 }
+
+/* The wrapper will take up the full height of the viewport */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* Main content will take the remaining space */
+main {
+    flex: 1;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333; /* Set the footer background */
+    color: white;            /* Set the footer text color */
+    padding: 1rem;
+    text-align: center;
+}
+
+/* 
+style="background-image: url('{% static 'images/hero.png' %}');
+background-size: cover;
+background-position: center;
+height: 50vh;">  */
+
+.hero {
+    position: relative;
+    /* background-image: url('{% static 'images/hero.png' %}'); */
+    background-image: url('/static/images/hero.png');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;     /* Centers content vertically */
+    color: white;            /* White text color */
+    text-align: center;      /* Centers the text inside */
+}
+
+/* Style for the hero text */
+.hero-text h1 {
+    margin: 0;  /* Removes default margins */
+    font-size: 3rem; /* Adjust font size as needed */
+}
+
+.hero-text p {
+    font-size: 1.5rem; /* Optional: Adjust font size for the paragraph */
+}
+
