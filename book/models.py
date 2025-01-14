@@ -31,3 +31,4 @@ class Review(models.Model):
     body = models.TextField()
     approved = models.BooleanField(choices=YES_NO_CHOICES, default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+    rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator ],default=5)

@@ -2,6 +2,7 @@
 
 from django.views import generic
 from .models import Book
+from .forms import ReviewForm
 
 # FEATURED BOOKS ON MAIN PAGE
 class BookList(generic.ListView):
@@ -19,3 +20,8 @@ class SingleBookListing(generic.DetailView):
     model = Book
     template_name = 'book/single_book_listing.html'  # Specify your template here
     context_object_name = 'book'  # This defines the context variable that will be used in the template
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reviews'] = self.object.reviews.all()
+        return context
