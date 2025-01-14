@@ -1,5 +1,9 @@
 {% load static %}
 
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,25 +27,55 @@
 <body>
     <div class="page-wrapper">
  
-    <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">BookNook</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                <a class="nav-link" href="{% url 'all_books' %}">All Books</a>
-                <a class="nav-link" href="#">Reviews</a>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Left-aligned items -->
+                <li class="nav-item"><a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'all_books' %}">All Books</a></li>
+                <li class="nav-item"><a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page" href="#">Reviews</a></li>
 
-                
-                <a class="nav-link disabled" aria-disabled="true">About</a>
-                </div>
-            </div>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <!-- Right-aligned items -->
+                {% if user.is_authenticated %}
+                    <li class="nav-item "><p class="nav-link" style="color: green;">You are logged in as {{ user }}</p></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="nav-item "><p class="nav-link" style="color: red;">You are not logged in </p></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a></li>
+                {% endif %}
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+
+
+    
+
+<!-- {% if user.is_authenticated %}
+<li class="nav-item">
+	<a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+</li>
+{% else %}
+<li class="nav-item">
+	<a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+		href="{% url 'account_signup' %}">Register</a>
+</li>
+<li class="nav-item">
+	<a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+</li>
+{% endif %} -->
+
 
     {% block content %}
     {% endblock %}
@@ -50,7 +84,7 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-light text-center">
         <p class="mb-0 text-muted"> 
-         &copy; 2025 The Book Nook. 
+        &copy; 2025 The Book Nook. 
         <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Visit our X page (opens in a new tab)"><i class="fab fa-twitter ms-3"></i></a>  
         <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)" ><i class="fab fa-facebook ms-3"></i></a>  
         <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)" ><i class="fab fa-instagram ms-3"></i></a>
