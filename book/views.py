@@ -3,6 +3,14 @@
 from django.views import generic
 from .models import Book
 from .forms import ReviewForm
+from django.shortcuts import render
+
+def your_view(request):
+    review = {
+        'rating': 3,  # Example rating
+    }
+    return render(request, 'your_template.html', {'review': review})
+
 
 # FEATURED BOOKS ON MAIN PAGE
 class BookList(generic.ListView):
@@ -16,12 +24,22 @@ class AllBooks(generic.ListView):
     paginate_by = 6  # Show 10 books per page
 
 # SINGLE BOOK LISTING
+# views.py
 class SingleBookListing(generic.DetailView):
     model = Book
-    template_name = 'book/single_book_listing.html'  # Specify your template here
-    context_object_name = 'book'  # This defines the context variable that will be used in the template
+    template_name = 'book/single_book_listing.html'
+    context_object_name = 'book'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['reviews'] = self.object.reviews.all()
+        reviews = self.object.reviews.all()
+
+        # Add a range list to the context
+        context['range'] = range(1, 6)
+
+        for review in reviews:
+            review.stars = ['fas' if i < review.rating else 'far' for i in range(5)]
+
+        context['reviews'] = reviews
         return context
+

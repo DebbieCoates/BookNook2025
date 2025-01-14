@@ -1,29 +1,29 @@
-
-<!-- PAGE FOR A SINGLE BOOK TO BE DISPLAYED -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <!-- <div class="container">
-        <h1>{{ book.title }}</h1>
-        <img src="{{ book.book_cover.url }}" alt="{{ book.title }}" class="img-fluid">
-        <p><strong>Author:</strong> {{ book.author }}</p>
-        <p><strong>Synopsis:</strong> {{ book.synopsis }}</p>
-        <p><strong>Published:</strong> {{ book.published_date }}</p>
-    </div> -->
-
-    <!-- book/single_book_listing.html -->
     <div class="container">
         <h1>{{ book.title }}</h1>
         <p>By {{ book.author }}</p>
-        <p>By {{ book.synopsis }}</p>
+        <p>{{ book.synopsis }}</p>
         <h2>Reviews</h2>
         {% for review in reviews %}
             <div>
                 <p>{{ review.body }}</p>
                 <p>Rating: {{ review.rating }}</p>
-                <p>Posted on: {{ review.created_at }}</p>
+
+                <div class="rating">
+                    {% for i in range %}
+                        {% if i < review.rating %}
+                            <i class="fas fa-star"></i> <!-- filled star -->
+                        {% else %}
+                            <i class="far fa-star"></i> <!-- empty star -->
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <p>Posted on: {{ review.created_on }}</p>
             </div>
         {% endfor %}
     </div>
-
 {% endblock %}
