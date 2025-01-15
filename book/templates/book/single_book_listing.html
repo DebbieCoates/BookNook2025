@@ -1,29 +1,58 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block content %}
-    <div class="container">
-        <h1>{{ book.title }}</h1>
-        <p>By {{ book.author }}</p>
-        <p>{{ book.synopsis }}</p>
-        <h2>Reviews</h2>
-        {% for review in reviews %}
-            <div>
-                <p>{{ review.body }}</p>
-                <p>Rating: {{ review.rating }}</p>
+<div class="container book_details ">
 
-                <div class="rating">
-                    {% for i in range %}
-                        {% if i < review.rating %}
-                            <i class="fas fa-star"></i> <!-- filled star -->
-                        {% else %}
-                            <i class="far fa-star"></i> <!-- empty star -->
-                        {% endif %}
-                    {% endfor %}
+    <div class="row"> <!-- 1st row -->
+        <div class="col-sm-4"> <!-- 1st column -->
+            <div class="image-container">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                {% else %}
+                <img class="card-img-top" src=" {{ book.book_cover.url }}" alt="{{ book.title }}">
+                {% endif %}
+                <div class="image-flash">
+                    <p class="author">Author: {{ book.author }}</p>
                 </div>
-
-                <p>Posted on: {{ review.created_on }}</p>
             </div>
-        {% endfor %}
-    </div>
-{% endblock %}
+        </div>
+        <div class="col-sm-8"> <!-- 2nd column -->
+            <div class="book-info">
+                <h1>{{ book.title }}</h1>
+                <p>By {{ book.author }}</p>
+                <p>{{ book.synopsis }}</p>
+            </div>
+        </div>
+    </div> <!-- end of 1st row -->
+
+    <div class="row"> <!-- 2nd row -->
+        <div class="col-sm">
+            <h2>Reviews</h2>
+            {% for review in reviews %}
+                <div>
+                    <p>{{ review.body }}</p>
+                    <p>Rating: {{ review.rating }}</p>
+    
+                    <div class="rating">
+                        {% for i in range %}
+                            {% if i < review.rating %}
+                                <i class="fas fa-star"></i> <!-- filled star -->
+                            {% else %}
+                                <i class="far fa-star"></i> <!-- empty star -->
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+    
+                    <p>Posted on: {{ review.created_on }}</p>
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div> <!-- end of 2nd row -->
+
+  </div>
+
+  {% endblock %}
+
