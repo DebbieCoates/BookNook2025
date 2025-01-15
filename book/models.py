@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth.models import User  # Import the User model
+from cloudinary.models import CloudinaryField
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Define choices for the BooleanField
@@ -12,7 +13,7 @@ class Book(models.Model):
     synopsis = models.TextField()
     genre = models.TextField()
     slug = models.SlugField(max_length=250, blank=True)  # No jls_extract_var
-    # book_cover = models.ImageField(upload_to='book_covers/', blank=True, null=True)
+    book_cover = CloudinaryField('image', default='placeholder')
     part_of_series = models.BooleanField(choices=YES_NO_CHOICES, default=False)
     ISBN = models.CharField(max_length=20, null=True, blank=True)
     featured = models.BooleanField(default=False)

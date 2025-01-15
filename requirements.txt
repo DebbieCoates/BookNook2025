@@ -1,5 +1,5 @@
 asgiref==3.8.1
-cloudinary==1.42.1
+cloudinary==1.36.0
 crispy-bootstrap5==0.7
 dj-database-url==0.5.0
 dj3-cloudinary-storage==0.0.6
