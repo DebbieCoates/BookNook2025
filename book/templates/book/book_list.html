@@ -21,20 +21,20 @@
                         <div class="col-md-4">
                             <div class="card mb-4">
 
-                                <!-- <a href="{% url 'single_book_listing' pk=book.pk %}">
-                                    <img src="{{ book.book_cover.url }}" class="card-img-top" alt="{{ book.title }}">
-                                </a> -->
-
-                                <!-- Check if the book has a cover, otherwise show a placeholder -->
-                                <!-- {% if book.book_cover %}
-                                <img src="{{ book.book_cover.url }}" class="card-img-top" alt="{{ book.title }}">
-                                    {% else %}
-                                <div class="card-img-top text-center">
-                                    <p>No Cover Listed</p>
-                                </div>
-                                {% endif %} -->
-
                                 <div class="card-body">
+
+                                    <div class="image-container">
+                                        {% if "placeholder" in post.featured_image.url %}
+                                        <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                            alt="placeholder image">
+                                        {% else %}
+                                        <img class="card-img-top" src=" {{ post.book_cover.url }}" alt="{{ book.title }}">
+                                        {% endif %}
+                                        <div class="image-flash">
+                                            <p class="author">Author: {{ book.author }}</p>
+                                        </div>
+                                    </div>
+
                                         <h5 class="card-title">{{ book.title }}</h5>
                                         <p class="card-text">{{ book.synopsis|truncatewords:15 }}</p>
                                         <p class="card-text"><small class="text-muted">Author: {{ book.author }}</small></p>
