@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container book_details ">
+<div class="container book_details">
 
     <div class="row"> <!-- 1st row -->
         <div class="col-sm-4"> <!-- 1st column -->
@@ -11,7 +11,7 @@
                 {% if "placeholder" in post.featured_image.url %}
                 <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                 {% else %}
-                <img class="card-img-top" src=" {{ book.book_cover.url }}" alt="{{ book.title }}">
+                <img class="card-img-top" src="{{ book.book_cover.url }}" alt="{{ book.title }}">
                 {% endif %}
                 <div class="image-flash">
                     <p class="author">Author: {{ book.author }}</p>
@@ -24,35 +24,41 @@
                 <p>By {{ book.author }}</p>
                 <p>{{ book.synopsis }}</p>
             </div>
+            <div>
+                <a href="{% url 'review_add' %}?book_id={{ book.id }}">Review this Book</a>
+            </div>
         </div>
     </div> <!-- end of 1st row -->
 
     <div class="row"> <!-- 2nd row -->
         <div class="col-sm">
-            <h2>Reviews</h2>
-            {% for review in reviews %}
-                <div>
-                    <p>{{ review.body }}</p>
-                    <p>Rating: {{ review.rating }}</p>
-    
-                    <div class="rating">
-                        {% for i in range %}
-                            {% if i < review.rating %}
-                                <i class="fas fa-star"></i> <!-- filled star -->
-                            {% else %}
-                                <i class="far fa-star"></i> <!-- empty star -->
-                            {% endif %}
-                        {% endfor %}
+            <div class="rating">
+                <h2>Reviews for {{ book.title }}</h2>
+                {% for review in reviews %}
+                    <div>
+                        <p>{{ review.body }}</p>
+                        <!-- <p>Rating: {{ review.rating }}</p> -->
+                        <div class="rating">
+                            {% for i in range %}
+                                {% if i <= review.rating %}
+                                    <i class="fas fa-star"></i> <!-- filled star -->
+                                {% else %}
+                                    <i class="far fa-star"></i> <!-- empty star -->
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <p>Posted on: {{ review.created_on }} - by {{review.author}}</p>
+                        <!-- If user is superuser and author -->
+                        {% if request.user.is_superuser or request.user == review.author %}
+                        <a href="{% url 'review_edit' review.id %}">Edit</a>
+                        <a href="{% url 'review_delete' review.id %}">Delete</a>
+                        <p> --------------------------------------------------------------------------</p>
+                        {% endif %}
                     </div>
-    
-                    <p>Posted on: {{ review.created_on }}</p>
-                </div>
-            {% endfor %}
-            
+                {% endfor %}
+            </div>
         </div>
     </div> <!-- end of 2nd row -->
 
-  </div>
-
-  {% endblock %}
-
+</div>
+{% endblock %}

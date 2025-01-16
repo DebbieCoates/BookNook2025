@@ -1,9 +1,16 @@
 
 
 from django.views import generic
+from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .models import Review
 from .models import Book
 from .forms import ReviewForm
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+
+
 
 def your_view(request):
     review = {
@@ -42,4 +49,45 @@ class SingleBookListing(generic.DetailView):
 
         context['reviews'] = reviews
         return context
+
+
+
+
+class ReviewCreateView(CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = 'book/review_form.html'
+
+    def form_valid(self, form):
+        # Assign the logged-in user to the review
+        form.instance.author = self.request.user
+
+        # Assign the book using the GET parameter 'book_id'
+        book_id = self.request.GET.get('book_id')
+        if book_id:
+            form.instance.book = get_object_or_404(Book, id=book_id)
+
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirect back to the book's detail page after creating a review
+        return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
+
+class ReviewUpdateView(UpdateView):
+    model = Review
+    fields = ['body', 'rating']
+    template_name = 'book/review_form.html'
+
+    def get_success_url(self):
+        # Redirect back to the book's detail page after updating the review
+        return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
+
+
+class ReviewDeleteView(DeleteView):
+    model = Review
+    template_name = 'book/confirm_delete.html'
+
+    def get_success_url(self):
+        # Redirect to the associated book's detail page after deletion
+        return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
