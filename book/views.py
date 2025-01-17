@@ -28,7 +28,7 @@ class BookList(generic.ListView):
 class AllBooks(generic.ListView):
     template_name = "book/all_books.html"
     queryset = Book.objects.all()
-    paginate_by = 6  # Show 10 books per page
+    paginate_by = 6  # Show 6 books per page
 
 # SINGLE BOOK LISTING
 # views.py

@@ -15,6 +15,14 @@ html, body {
 /* Main content will take the remaining space */
 main {
     flex: 1;
+    background-image: url('/static/images/00058.jpg');
+    background-size: cover;  /* Make sure the image covers the entire container */
+    background-position: center;  /* Center the image within the container */
+    background-repeat: no-repeat;  /* Prevent the image from repeating */
+    width: 100%;  /* Optional: Set the container width */
+    height: 300px;  /* Optional: Set the container height */
+   
+    color: black;  /* Optional: Set the text color to make it readable */
 }
 
 /* Footer styles */
@@ -47,11 +55,26 @@ footer {
 .hero-text p {
     font-size: 1.5rem;
 }
+
+.custom-card, .custom-card .card-body, .custom-card .card-img-top, .custom-card .card-title, .custom-card .card-text, .custom-card .image-container {
+    margin: 0;        /* Removes any margin */
+    padding: 0;       /* Removes any padding */
+    border: none;     /* Removes any border that might add space */
+}
+
+.container h1 {
+    text-align: center;  /* Centers the card title */
+    width: 100%;         /* Ensures the card title takes up full width */
+    padding: 20px 0;     /* Adds equal padding top and bottom */
+    box-sizing: border-box; /* Ensures padding is included in the total width and height */
+}
+
+
 /* Style for the image container */
 .image-container {
     height: 30vh;  /* Adjust the height as needed */
     width: auto;
-    padding: 5px;   /* Adds padding around the images */
+    /* padding: 5px;   */
     box-sizing: border-box;  /* Ensures padding is included in the total width and height */
     overflow: hidden;  /* Ensures the images fit nicely */
 }
@@ -59,6 +82,36 @@ footer {
 /* Style for the images */
 .image-container img {
     height: 100%;  /* Makes the images take up the full height of the container */
-    width: auto;   /* Maintains the aspect ratio of the images */
+    width: auto;   
     display: block;  /* Ensures there is no extra space around the images */
+}
+
+.custom-card {
+    max-width: 250px;  /* Increases the max width of each card */
+    margin: auto;      /* Centers the card */
+}
+
+.custom-card-body {
+    padding: 10px;  /* Adds some padding inside the card body */
+}
+
+.card-img-top {
+    width: 100%;    /* Ensures image fits the card */
+    height: auto;   /* Maintains the image aspect ratio */
+}
+
+.custom-card .card-title {
+    text-align: center;  /* Centers the card title */
+    padding: 10px 0;     /* Adds padding to the title */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.row .col-md-6, .row .col-lg-3 {
+    padding: 5px; /* Reduces padding between the columns */
+}
+
+.more-link {
+    display: block;
+    text-align: right;
+    margin-top: 10px; /* Adjust this value as needed */
 }

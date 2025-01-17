@@ -5,11 +5,13 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-
+<main>
     <div class="container book_details">
 
-        <div class="row"> <!-- 1st row -->
-            <div class="col-sm-4"> <!-- 1st column -->
+        <div class="row">
+            <!-- 1st row -->
+            <div class="col-sm-4">
+                <!-- 1st column -->
                 <div class="image-container">
                     {% if "placeholder" in post.featured_image.url %}
                     <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
@@ -21,7 +23,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8"> <!-- 2nd column -->
+            <div class="col-sm-8">
+                <!-- 2nd column -->
                 <div class="book-info">
                     <h1>{{ book.title }}</h1>
                     <p>By {{ book.author }}</p>
@@ -33,41 +36,43 @@
             </div>
         </div> <!-- end of 1st row -->
 
-        <div class="row"> <!-- 2nd row -->
+        <div class="row">
+            <!-- 2nd row -->
             <div class="col-sm">
                 <div class="rating">
                     <h2> Member reviews for {{ book.title }}</h2>
                     {% for review in reviews %}
-                        <div>
-                            <p>{{ review.body }}</p>
-                            <!-- <p>Rating: {{ review.rating }}</p> -->
-                            <div class="rating">
-                                {% for i in range %}
-                                    {% if i <= review.rating %}
-                                        <i class="fas fa-star"></i> <!-- filled star -->
-                                    {% else %}
-                                        <i class="far fa-star"></i> <!-- empty star -->
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                            <p>Posted on: {{ review.created_on }} - by {{review.author}}</p>
-                            <!-- If user is superuser and author -->
-                            {% if request.user.is_superuser or request.user == review.author %}
-                            <!-- <a href="{% url 'review_edit' review.id %}">Edit</a>
-                            <a href="{% url 'review_delete' review.id %}">Delete</a> -->
-                            <a href="{% url 'review_edit' review.id %}" class="btn btn-primary">Edit</a>
-                            <a href="{% url 'review_delete' review.id %}" class="btn btn-primary">Delete</a>
-                            
-                            <hr style="border: 1px solid black;">
-
+                    <div>
+                        <p>{{ review.body }}</p>
+                        <!-- <p>Rating: {{ review.rating }}</p> -->
+                        <div class="rating">
+                            {% for i in range %}
+                            {% if i <= review.rating %}
+                            <i class="fas fa-star"></i> <!-- filled star -->
+                            {% else %}
+                            <i class="far fa-star"></i> <!-- empty star -->
                             {% endif %}
+                            {% endfor %}
                         </div>
+                        <p>Posted on: {{ review.created_on }} - by {{review.author}}</p>
+                        <!-- If user is superuser and author -->
+                        {% if request.user.is_superuser or request.user == review.author %}
+                        <!-- <a href="{% url 'review_edit' review.id %}">Edit</a>
+                            <a href="{% url 'review_delete' review.id %}">Delete</a> -->
+                        <a href="{% url 'review_edit' review.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'review_delete' review.id %}" class="btn btn-primary">Delete</a>
+
+                        <hr style="border: 1px solid black;">
+
+                        {% endif %}
+                    </div>
                     {% endfor %}
                 </div>
             </div>
         </div> <!-- end of 2nd row -->
 
-</div>
+    </div>
+</main>
 {% else %}
 
 You are not authorised to view this form, Please Login or Register to view
