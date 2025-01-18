@@ -32,6 +32,11 @@
                 </div>
                 <div>
                     <a href="{% url 'review_add' %}?book_id={{ book.id }}" class="btn btn-primary">Review this Book</a>
+
+                    <a href="{% url 'add_to_wishlist' book.id %}" class="btn btn-primary">Add to Wishlist</a>
+
+
+
                 </div>
             </div>
         </div> <!-- end of 1st row -->

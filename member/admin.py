@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import WishList
+from .models import Member
 
 # Allow the Admin site to appear in the admin site
 # admin.site.register(Book)
-admin.site.register(WishList)
+admin.site.register(Member)

@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.wishlist {
+    list-style-type: none;
+    padding: 0;
+}
+
+.wishlist-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.wishlist-item h2 {
+    margin-top: 0;
+}
+
+.wishlist-item img {
+    max-width: 100px;
+}

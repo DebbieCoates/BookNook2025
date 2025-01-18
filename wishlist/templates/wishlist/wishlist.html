@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container">
+    <h1>{{ request.user.username }}'s Wishlist</h1>
+    {% if wishlist_items %}
+        <ul class="wishlist">
+            {% for item in wishlist_items %}
+                <li class="wishlist-item">
+                    <h2>{{ item.book.title }}</h2>
+                    <p><strong>Author:</strong> {{ item.book.author }}</p>
+                    <p>{{ item.book.synopsis }}</p>
+                    <img src="{{ item.book.book_cover.url }}" alt="{{ item.book.title }} cover">
+                    <a href="{% url 'remove_from_wishlist' item.book.id %}" class="btn btn-danger">Remove from Wishlist</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You currently have no books listed</p>
+    {% endif %}
+</div>
+
+
+    {% else %}
+    You are not authorised to view this form, Please Login or Register to view
+    {% endif %}
+    {% endblock %}

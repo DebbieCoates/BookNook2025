@@ -11,7 +11,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 
 
-
 def your_view(request):
     review = {
         'rating': 3,  # Example rating
