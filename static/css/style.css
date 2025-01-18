@@ -122,3 +122,6 @@ footer {
     left: 50%;
     transform: translateX(-50%);
 }
+
+
+ .profile-container { max-width: 600px; margin: auto; margin-top: 50px; padding: 20px; background-color: #f8f9fa; border-radius: 8px; } 

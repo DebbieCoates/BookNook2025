@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Member Profile</title>
+</head>
+<body>
+    <h1>Update Member Profile</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ member_form.as_p }}
+        <button type="submit">Save changes</button>
+    </form>
+</body>
+</html>
