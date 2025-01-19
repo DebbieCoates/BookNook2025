@@ -26,16 +26,14 @@
             <div class="col-sm-8">
                 <!-- 2nd column -->
                 <div class="book-info">
-                    <h1>{{ book.title }}</h1>
+                    <h1 class="display-3">{{ book.title }}</h1>
                     <p>By {{ book.author }}</p>
                     <p>{{ book.synopsis }}</p>
                 </div>
                 <div>
-                    <a href="{% url 'review_add' %}?book_id={{ book.id }}" class="btn btn-primary">Review this Book</a>
 
-                    <a href="{% url 'add_to_wishlist' book.id %}" class="btn btn-primary">Add to Wishlist</a>
-
-
+                    <a href="{% url 'review_add' %}?book_id={{ book.id }}" class="btn btn-secondary btn-sm">Review this Book</a>
+                    <a href="{% url 'add_to_wishlist' book.id %}" class="btn btn-secondary btn-sm">Add to Wishlist</a>
 
                 </div>
             </div>
@@ -45,7 +43,7 @@
             <!-- 2nd row -->
             <div class="col-sm">
                 <div class="rating">
-                    <h2> Member reviews for {{ book.title }}</h2>
+                    <h2 class="display-6"> Member reviews for {{ book.title }}</h2>
                     {% for review in reviews %}
                     <div>
                         <p>{{ review.body }}</p>
@@ -64,8 +62,9 @@
                         {% if request.user.is_superuser or request.user == review.author %}
                         <!-- <a href="{% url 'review_edit' review.id %}">Edit</a>
                             <a href="{% url 'review_delete' review.id %}">Delete</a> -->
-                        <a href="{% url 'review_edit' review.id %}" class="btn btn-primary">Edit</a>
-                        <a href="{% url 'review_delete' review.id %}" class="btn btn-primary">Delete</a>
+                        <a href="{% url 'review_edit' review.id %}" class="btn btn-secondary btn-sm">Edit</a>
+                        <a href="{% url 'review_delete' review.id %}" class="btn btn-secondary btn-sm">Delete</a>
+
 
                         <hr style="border: 1px solid black;">
 
