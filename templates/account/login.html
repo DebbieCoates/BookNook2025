@@ -7,12 +7,11 @@
 
 {% block content %}
 <main>
-  <div class="container" profile-container>
-    <div class="profile-container text-center">
+  <div class="container profile-container  thin-black-border text-center">
 
       <!-- Login Page -->
 
-      <h1>{% trans "Login" %}</h1>
+      <h1 class="display-3">{% trans "Login" %}</h1>
 
       {% get_providers as socialaccount_providers %}
       {% if socialaccount_providers %}
@@ -48,6 +47,6 @@
       </form>
 
     </div>
-  </div>
+
   </main>
   {% endblock content %}
