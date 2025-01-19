@@ -4,17 +4,31 @@
 
 {% block content %}
 {% if user.is_authenticated %}
+
+{% load crispy_forms_tags %}
+
 <main>
-    <div class="container mt-5">
+
+    <div class="container mt-5 thin-black-border">
         <h1 class="display-3">Add Book</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
+            <!-- Render each field separately -->
+            {{ form.title | as_crispy_field }}
+            {{ form.author | as_crispy_field }}
+            {{ form.synopsis | as_crispy_field }}
+            {{ form.category | as_crispy_field }}
+            {{ form.book_cover | as_crispy_field }}
+            {{ form.part_of_series | as_crispy_field }}
+            {{ form.ISBN | as_crispy_field }}
+            <!-- Submit button -->
             <button type="submit" class="btn btn-primary">Add Book</button>
         </form>
     </div>
 
 </main>
+
+
 
 {% else %}
 You are not authorised to view this form, Please Login or Register to view

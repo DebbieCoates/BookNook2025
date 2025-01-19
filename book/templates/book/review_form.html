@@ -3,12 +3,28 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div id="form-container" class="container">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input type="submit" value="Save">
-    </form>
-</div>
+{% if user.is_authenticated %}
 
-{% endblock content %}
+
+{% load crispy_forms_tags %}
+
+<main>
+    <div class="container mt-5 thin-black-border">
+        <h1 class="display-3">Review Book</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.body | as_crispy_field }}
+            {{ form.rating | as_crispy_field }}
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
+</main>
+
+
+
+
+{% else %}
+You are not authorised to view this form, Please Login or Register to view
+{% endif %}
+
+{% endblock %}

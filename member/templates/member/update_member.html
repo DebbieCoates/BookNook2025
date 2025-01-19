@@ -4,9 +4,11 @@
 {% if user.is_authenticated %}
 <main>
 
-    <div class="container" profile-container>
-        <div class="profile-container text-center">
 
+<!-- 
+    <div class="container" profile-container> -->
+        <div class="profile-container text-center">
+            <div class="container mt-5 thin-black-border">
     <h1>Update Member Profile</h1>
     <form method="post">
         {% csrf_token %}

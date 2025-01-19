@@ -37,6 +37,8 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+
+
 class Review(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="reviews")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
@@ -44,3 +46,4 @@ class Review(models.Model):
     approved = models.BooleanField(choices=YES_NO_CHOICES, default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator ],default=5)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
