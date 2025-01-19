@@ -10,7 +10,6 @@ def member_profile(request):
     return render(request, 'member/member_profile.html')
 
 
-
 @login_required
 def update_member(request):
     if request.method == 'POST':

@@ -70,10 +70,9 @@
                 <!-- Right-aligned items -->
                 {% if user.is_authenticated %}
                     <li class="nav-item "><p class="nav-link" style="color: green;">You are logged in as {{ user }}</p></li>
-                    <li class="nav-item"><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == wishlist_view %}active{% endif %}" aria-current="page" href="{% url 'wishlist_view' %}">Wishlist</a></li>
-
-                    <li class="nav-item"><a class="nav-link {% if request.path == update_member %}active{% endif %}" aria-current="page" href="{% url 'update_member' %}">Update Profile</a></li> 
+                    <li class="nav-item"> <a class="nav-link {% if request.path == '/member/' %}active{% endif %}" aria-current="page" href="{% url 'member_profile' %}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                     <li class="nav-item "><p class="nav-link" style="color: red;">You are not logged in </p></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a></li>

@@ -1,15 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Update Member Profile</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<main>
+
+    <div class="container" profile-container>
+        <div class="profile-container text-center">
+
     <h1>Update Member Profile</h1>
     <form method="post">
         {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ member_form.as_p }}
-        <button type="submit">Save changes</button>
+
+        <!-- User Form Fields -->
+        <div class="form-field-box">
+            <label class="form-label"><strong>First Name:</strong></label>
+            {{ user_form.first_name }}
+        </div>
+        <div class="form-field-box">
+            <label class="form-label"><strong>Last Name:</strong></label>
+            {{ user_form.last_name }}
+        </div>
+        <div class="form-field-box">
+            <label class="form-label"><strong>Email:</strong></label>
+            {{ user_form.email }}
+        </div>
+
+        <!-- Member Form Fields -->
+        <div class="form-field-box">
+            <label class="form-label"><strong>Bio:</strong></label>
+            {{ member_form.bio }}
+        </div>
+        <div class="form-field-box">
+            <label class="form-label"><strong>Location:</strong></label>
+            {{ member_form.location }}
+        </div>
+        <div class="form-field-box">
+            <label class="form-label"><strong>Birth Date:</strong></label>
+            {{ member_form.birth_date }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save changes</button>
     </form>
-</body>
-</html>
+
+
+</div>
+</div>
+</main>
+{% else %}
+You are not authorised to view this form, Please Login or Register to view.
+{% endif %}
+{% endblock %}
+

@@ -1,3 +1,27 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;400;600;700&display=swap'); */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+    /* fonts */
+    /* --title: 'Outfit', sans-serif;
+    --main-font: 'Montserrat', sans-serif; */
+
+    --title: 'Poppins', sans-serif;
+    --main-font: 'Roboto', sans-serif;
+
+    /* colors */
+    --white: #ffffff;
+    --black: #0d0d0d;
+    --purple: #ac44f2;
+    --green: #3bd952;
+    --orange: #f29f05;
+    --coral: #f25c5c;
+    --blue: #4ce0c3;
+}
 
 /* Ensure the page takes the full height */
 html, body {
@@ -46,14 +70,33 @@ footer {
     text-align: center;
 }
 
+.transparent-background {
+    background-color: rgba(255, 255, 255, 0.5); /* White background with 50% transparency */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.hero_image_container {
+    display: flex;
+    justify-content: center; /* Centers the hero section horizontally */
+    align-items: center;     /* Centers the hero section vertically */
+    background-color: rgba(59, 217, 82, 0.5); /* Light green with opacity (RGBA) */
+    padding: 0 20px;         /* Optional: adds some padding if needed */
+}
+
+
 /* Style for the hero text */
 .hero-text h1 {
     margin: 0;
     font-size: 5rem;
+    color: var(--white);
+    font-family: var(--title);
 }
 
 .hero-text p {
     font-size: 1.5rem;
+    color: var(--white);
+    font-family: var(--main-font);
 }
 
 .custom-card, .custom-card .card-body, .custom-card .card-img-top, .custom-card .card-title, .custom-card .card-text, .custom-card .image-container {
@@ -67,6 +110,7 @@ footer {
     width: 100%;         /* Ensures the card title takes up full width */
     padding: 20px 0;     /* Adds equal padding top and bottom */
     box-sizing: border-box; /* Ensures padding is included in the total width and height */
+    background-color: #f8f9fa; 
 }
 
 
@@ -124,4 +168,14 @@ footer {
 }
 
 
- .profile-container { max-width: 600px; margin: auto; margin-top: 50px; padding: 20px; background-color: #f8f9fa; border-radius: 8px; } 
+ .profile-container { 
+    max-width: 600px; 
+    margin: auto; 
+    margin-top: 50px; 
+    padding: 20px; 
+    /* background-color: #f8f9fa;  */
+    background-color: rgba(255, 255, 255, 0.5);
+
+    border-radius: 8px; } 
+
+ /* .form-field-box { color: white;background-color: green; border: 1px solid #c3e6cb; border-radius: 8px; padding: 15px; margin-bottom: 15px;  } */
