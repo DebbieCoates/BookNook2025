@@ -16,7 +16,9 @@
 
 
     <div class="container">
-        <h1>Featured Books</h1>
+
+        <h1 class="display-5">Featured Books</h1>
+
 
         <p><em>
                 Dive into our handpicked selection of must-read books! Our featured books are carefully
@@ -29,26 +31,21 @@
 
         <div class="row justify-content-center">
             {% for book in object_list %}
-            <div class="col-md-2">
-                <div class="card mb-4 custom-card">
-                    <div class="card-body custom-card-body">
-                        <div class="image-container">
-                            {% if "placeholder" in post.featured_image.url %}
-                            <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
-                            {% else %}
-                            <img class="card-img-top" src="{{ book.book_cover.url }}" alt="{{ book.title }}">
-                            {% endif %}
-                            <div class="image-flash">
-                                <p class="author">Author: {{ book.author }}</p>
-                            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2 card-container">
+                <div class="card mb-2 card-fixed-size d-flex flex-column">
+                    <img src="{{ book.book_cover.url }}" class="card-img-top" alt="{{ book.title }} cover">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title card-title-fixed">{{ book.title }}</h5>
+                        <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+                        <!-- <p class="card-text card-text-fixed">{{ book.synopsis|truncatewords:15 }}</p> -->
+                        <div class="mt-auto">
+                            <a href="{% url 'single_book_listing' pk=book.pk %}" class="d-grid gap-2 btn btn-secondary">More ...</a>
                         </div>
-                        <h5 class="card-title">{{ book.title }}</h5>
-                        <p class="card-text">{{ book.synopsis|truncatewords:15 }}</p>
-                        <p class="card-text"><small class="text-muted">Author: {{ book.author }}</small></p>
-                        <a href="{% url 'single_book_listing' pk=book.pk %}" class="more-link"><small> More .....</small></a>
                     </div>
                 </div>
             </div>
+
             {% endfor %}
         </div>
     </div>

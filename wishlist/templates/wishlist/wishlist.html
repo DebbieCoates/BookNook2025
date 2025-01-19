@@ -9,9 +9,12 @@
 <main>
     <div class="container">
         <h1 class="display-3">{{ request.user.username }}'s Wishlist</h1>
-        {% if wishlist_items %}
+
+        <p  class="text-center">You have {{ wishlist_count }} book{% if wishlist_count != 1 %}s{% endif %} on your wishlist.</p> 
+
+        {% if page_obj %}
         <div class="row justify-content-center">
-            {% for item in wishlist_items %}
+            {% for item in page_obj %}
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 card-container">
                 <div class="card mb-2 card-fixed-size d-flex flex-column">
                     <img src="{{ item.book.book_cover.url }}" class="card-img-top" alt="{{ item.book.title }} cover">
@@ -26,6 +29,36 @@
             </div>
             {% endfor %}
         </div>
+
+        <!-- Pagination controls -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                {% elif num > page_obj.number|add:-3 and num < page_obj.number|add:3 %}
+                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <!-- Page information -->
+        <!-- <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p> -->
         {% else %}
         <p>You currently have no books listed</p>
         {% endif %}
