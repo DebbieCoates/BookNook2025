@@ -50,7 +50,6 @@
 
         <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'images/favicon.ico' %}" width="30" height="30" alt="Favicon"> </a>
 
-
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -70,6 +69,10 @@
                 <!-- Right-aligned items -->
                 {% if user.is_authenticated %}
                     <li class="nav-item "><p class="nav-link" style="color: green;">You are logged in as {{ user }}</p></li>
+                    <li class="nav-item"> <a class="nav-link {% if request.path == '/add/' %}active{% endif %}" aria-current="page" href="{% url 'add_book' %}">Add Book</a> </li>
+                    {% if user.is_staff %}
+                    <li class="nav-item"> <a class="nav-link {% if request.path == '/pending_approval/' %}active{% endif %}" aria-current="page" href="{% url 'pending_approval' %}">Pending Approvals</a></li>
+                    {% endif %}
                     <li class="nav-item"><a class="nav-link {% if request.path == wishlist_view %}active{% endif %}" aria-current="page" href="{% url 'wishlist_view' %}">Wishlist</a></li>
                     <li class="nav-item"> <a class="nav-link {% if request.path == '/member/' %}active{% endif %}" aria-current="page" href="{% url 'member_profile' %}">Profile</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>

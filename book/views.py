@@ -1,14 +1,68 @@
 
 
 from django.views import generic
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Review
 from .models import Book
 from .forms import ReviewForm
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .forms import BookForm
+from .forms import ApprovalForm
+
+@login_required
+def pending_approval(request):
+    if request.method == 'POST':
+        form = ApprovalForm(request.POST)
+        if form.is_valid():
+            book_id = form.cleaned_data['book_id']
+            approval_status = form.cleaned_data['approved']
+            book = Book.objects.get(id=book_id)
+            book.approved = approval_status
+            book.save()
+            return redirect('pending_approval')
+    else:
+        books = Book.objects.filter(approved=False)
+        form = ApprovalForm()
+    return render(request, 'book/pending_approval.html', {'books': books, 'form': form})
+
+
+
+@login_required
+def add_book(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.uploadedby = request.user  # Set the current user as the uploader
+            book.save()
+            return redirect('all_books')  # Redirect to 'all_books' after successful addition
+    else:
+        form = BookForm()
+    return render(request, 'book/add_book.html', {'form': form})
+
+
+@login_required
+def update_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES, instance=book)
+        if form.is_valid():
+            form.save()
+            return redirect('book_list')  # Change 'book_list' to your desired redirect URL
+    else:
+        form = BookForm(instance=book)
+    return render(request, 'book/update_book.html', {'form': form})
+
+@login_required
+def delete_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == 'POST':
+        book.delete()
+        return redirect('book_list')  # Change 'book_list' to your desired redirect URL
+    return render(request, 'book/delete_book.html', {'book': book})
 
 
 def your_view(request):
@@ -16,6 +70,12 @@ def your_view(request):
         'rating': 3,  # Example rating
     }
     return render(request, 'your_template.html', {'review': review})
+
+
+
+def book_list(request):
+    books = Book.objects.all()
+    return render(request, 'book/book_list.html', {'books': books})
 
 
 # FEATURED BOOKS ON MAIN PAGE
@@ -26,8 +86,11 @@ class BookList(generic.ListView):
 # ALL BOOKS
 class AllBooks(generic.ListView):
     template_name = "book/all_books.html"
-    queryset = Book.objects.all()
+    # queryset = Book.objects.all()
     paginate_by = 6  # Show 6 books per page
+
+    def get_queryset(self):
+        return Book.objects.filter(approved=True)  # Filter to only include approved books
 
 # SINGLE BOOK LISTING
 # views.py

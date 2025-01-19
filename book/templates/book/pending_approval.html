@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+
+<main>
+    <div class="container mt-5">
+        <h1 class="display-3">Pending Approval</h1>
+
+        {% if books %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Uploaded By</th>
+                    <th>Uploaded On</th>
+                    <th>Approval Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.category }}</td>
+                    <td>{{ book.uploadedby.username }}</td>
+                    <td>{{ book.uploadedOn }}</td>
+                    <td>{{ book.approved }}</td>
+                    <td>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="hidden" name="book_id" value="{{ book.id }}">
+                            <button type="submit" class="btn btn-primary">Update Status</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class ="text-center">No books pending approval.</p>
+        {% endif %}
+    </div>
+</main>
+
+
+
+{% else %}
+You are not authorised to view this form, Please Login or Register to view
+{% endif %}
+{% endblock %}

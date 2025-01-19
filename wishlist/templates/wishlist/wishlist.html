@@ -10,9 +10,11 @@
     <div class="container">
         <h1 class="display-3">{{ request.user.username }}'s Wishlist</h1>
 
-        <p  class="text-center">You have {{ wishlist_count }} book{% if wishlist_count != 1 %}s{% endif %} on your wishlist.</p> 
+        
 
         {% if page_obj %}
+        <p  class="text-center">You have {{ wishlist_count }} book{% if wishlist_count != 1 %}s{% endif %} on your wishlist.</p> 
+
         <div class="row justify-content-center">
             {% for item in page_obj %}
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 card-container">
@@ -60,7 +62,7 @@
         <!-- Page information -->
         <!-- <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p> -->
         {% else %}
-        <p>You currently have no books listed</p>
+        <p class = "text-center">You currently have no books listed</p>
         {% endif %}
     </div>
 </main>

@@ -11,6 +11,12 @@ urlpatterns = [
     path('reviews/add/', ReviewCreateView.as_view(), name='review_add'),
     path('reviews/edit/<int:pk>/', ReviewUpdateView.as_view(), name='review_edit'),
     path('reviews/delete/<int:pk>/', ReviewDeleteView.as_view(), name='review_delete'),
-]
 
+    path('add/', views.add_book, name='add_book'),
+    path('update/<int:pk>/', views.update_book, name='update_book'),
+    path('delete/<int:pk>/', views.delete_book, name='delete_book'),
+
+    path('pending_approval/', views.pending_approval, name='pending_approval'),
+
+]
 
