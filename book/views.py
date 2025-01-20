@@ -1,5 +1,5 @@
 
-
+from django.core.exceptions import PermissionDenied
 from django.views import generic
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -143,6 +143,13 @@ class ReviewUpdateView(UpdateView):
     fields = ['body', 'rating']
     template_name = 'book/review_form.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        # Ensure the user is the author of the review
+        review = self.get_object()
+        if review.author != request.user and not request.user.is_staff:
+            raise PermissionDenied("You are not allowed to edit this review.")
+        return super().dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         # Redirect back to the book's detail page after updating the review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
@@ -151,6 +158,13 @@ class ReviewDeleteView(DeleteView):
     model = Review
     template_name = 'book/confirm_delete.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        # Ensure the user is the author of the review
+        review = self.get_object()
+        if review.author != request.user and not request.user.is_staff:
+            raise PermissionDenied("You are not allowed to delete this review.")
+        return super().dispatch(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['book'] = self.object.book  # Pass the book to the template
@@ -158,6 +172,7 @@ class ReviewDeleteView(DeleteView):
         return context
 
     def get_success_url(self):
+        # Redirect back to the book's detail page after deleting the review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
 def SiteBookList(request):
