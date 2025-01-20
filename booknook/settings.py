@@ -45,6 +45,9 @@ CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.
 
 # Application definition
 
+
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,6 +61,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'widget_tweaks',
     'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',

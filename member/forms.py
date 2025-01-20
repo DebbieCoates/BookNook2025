@@ -12,19 +12,24 @@ class UserForm(forms.ModelForm):
 
 
 
+
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
         fields = ['bio', 'location', 'birth_date']
+        widgets = {
+            'birth_date': forms.DateInput(attrs={'type': 'date'})
+        }
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.layout = Layout(
-            Field('bio'),
-            Field('location'),
-            Field('birth_date'),
-            Submit('submit', 'Save Member')
-        )
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.helper = FormHelper()
+    #     self.helper.form_method = 'post'
+    #     self.helper.layout = Layout(
+    #         Field('bio'),
+    #         Field('location'),
+    #         Field('birth_date'),
+    #         Submit('submit', 'Save Member')
+    #     )
 
