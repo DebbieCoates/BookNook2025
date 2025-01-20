@@ -59,7 +59,7 @@
                 <!-- Left-aligned items -->
                 {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'all_books' %}">All Books</a></li>
+                <li class="nav-item"><a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'all_books' %}">Books</a></li>
                 <!-- <li class="nav-item"><a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page" href="#">Reviews</a></li> -->
                 {% else %}
                 <li class="nav-item"><a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a></li>
@@ -73,7 +73,7 @@
                     {% if user.is_staff %}
                     <li class="nav-item"> <a class="nav-link {% if request.path == '/pending_approval/' %}active{% endif %}" aria-current="page" href="{% url 'pending_approval' %}">Pending Approvals</a></li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/SiteBookList/' %}active{% endif %}" aria-current="page" href="{% url 'SiteBookList' %}">SiteBookList</a>
+                        <a class="nav-link {% if request.path == '/SiteBookList/' %}active{% endif %}" aria-current="page" href="{% url 'SiteBookList' %}">Book List</a>
                     </li>
 
                     

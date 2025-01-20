@@ -7,7 +7,7 @@
 
 <main>
 
-    <div class="container mt-5 thin-black-border text-center">
+    <div class="container mt-5 thin-black-border ">
         <h1 class="mb-4 display-3"> Profile</h1>
 
         <div class="mb-3">
@@ -35,8 +35,13 @@
             <p>{{ request.user.member.birth_date }}</p>
         </div>
         <div>
-            <a class="nav-link {% if request.path == '/profile/' %}active{% endif %}" aria-current="page"
-                href="{% url 'update_member' %}"> Update Profile </a>
+            <!-- <a class="nav-link {% if request.path == '/profile/' %}active{% endif %}" aria-current="page"
+                href="{% url 'update_member' %}"> Update Profile </a> -->
+
+                <button class="btn btn-primary {% if request.path == '/profile/' %}active{% endif %}" aria-current="page"
+                onclick="window.location.href='{% url 'update_member' %}'">Update Profile</button>
+
+    
         </div>
     </div>
 </main>
