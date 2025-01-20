@@ -12,7 +12,7 @@ from .models import Book
 from .forms import ReviewForm
 from .forms import BookForm
 from .forms import ApprovalForm
-
+from django.contrib import messages
 
 @login_required
 def pending_approval(request):
@@ -30,9 +30,6 @@ def pending_approval(request):
         form = ApprovalForm()
     return render(request, 'book/pending_approval.html', {'books': books, 'form': form})
 
-
-
-from django.contrib import messages
 
 @login_required
 def add_book(request):
