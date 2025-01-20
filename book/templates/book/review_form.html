@@ -6,7 +6,8 @@
 <main>
     <div class="container mt-5 thin-black-border">
         <h1 class="display-3">Review Book</h1>
-        <h2>Review of {{ book.title }} by {% if author.name %}{{ author.name }}{% else %}author unspecified{% endif %}</h2>
+        <h2>Review of {{ book.title }} by {% if author.name %}{{ author.name }}{% else %}author unspecified{% endif %}
+        </h2>
 
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}

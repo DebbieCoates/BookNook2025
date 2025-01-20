@@ -3,8 +3,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm, MemberForm
 
-
-
 @login_required
 def member_profile(request):
     return render(request, 'member/member_profile.html')
@@ -18,7 +16,7 @@ def update_member(request):
         if user_form.is_valid() and member_form.is_valid():
             user_form.save()
             member_form.save()
-            return redirect('member_profile')  # Change 'member_profile' to your desired redirect URL
+            return redirect('member_profile') 
     else:
         user_form = UserForm(instance=request.user)
         member_form = MemberForm(instance=request.user.member)

@@ -9,9 +9,6 @@
 <main>
     <div class="container">
         <h1 class="display-3">{{ request.user.username }}'s Wishlist</h1>
-
-        
-
         {% if page_obj %}
         <p  class="text-center">You have {{ wishlist_count }} book{% if wishlist_count != 1 %}s{% endif %} on your wishlist.</p> 
 
@@ -59,8 +56,6 @@
             </ul>
         </nav>
 
-        <!-- Page information -->
-        <!-- <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p> -->
         {% else %}
         <p class = "text-center">You currently have no books listed</p>
         {% endif %}
