@@ -1,15 +1,20 @@
 # **BookNook**
 
-**BookNook** is an community platform designed to connect readers and literary enthusiasts. It offers a space where members can easily discover new books, join discussions, and participate in regular meetings covering a wide range of genres, from fiction and non-fiction to poetry and memoirs. The book club also hosts events such as author talks, themed discussions, and book swap opportunities, fostering a sense of camaraderie and supporting a shared love for reading. The project is part of the Code Institute's Full-Stack Developer course and focuses on Django framework, database manipulation, and CRUD functionality.
+**BookNook** BookNook is a community platform designed to connect readers and literary enthusiasts, providing a space for members to easily discover new books. The platform caters to book lovers who wish to delve into book details, save their favorite titles for future reading, and engage with the community by writing reviews. Aimed primarily at adult readers, the site fosters connections among like-minded individuals through shared book reviews. Additionally, it offers robust tools for administrators to effectively manage content, moderate reviews, and maintain the book database.
 
-<!--
-  ![HealMate Homepage](docs/project-images/homepage.png)
-  
-  Live site: <a href="#" target="_blank">BookNook</a>
-  
-  For **Admin access** with relevant sign-in information, click <a href="https://healmate-378e458234ec.herokuapp.com/admin/login/?next=/admin/" target="_blank">here</a>.
-  Github repository, click <a href="https://github.com/easybulb/healmate" target="_blank">here</a>.
--->
+This project is part of the Code Institute's Full-Stack Developer course and focuses on the Django framework, database manipulation, and CRUD functionality.
+
+<!-- 
+[Live project](https://book-club-acf9649c2594.herokuapp.com/)
+
+[Django administration](https://book-club-acf9649c2594.herokuapp.com/admin/) -->
+
+Admin Username: bookend
+
+Password: debbiesproject
+
+[Project Board](https://github.com/users/DebbieCoates/projects/13)
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Overview](#overview)
