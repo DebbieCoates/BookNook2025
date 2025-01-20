@@ -234,7 +234,7 @@ footer {
 } */
 
 
-
+/* 
     .d-flex.flex-column label {
         display: block;
         margin-bottom: 10px;
@@ -242,5 +242,8 @@ footer {
     .d-flex.flex-column input[type="radio"] {
         display: inline-block;
         margin-right: 5px;
-    }
+    } */
 
+    .table-warning {
+        background-color: #fff3cd; /* Light yellow background for warning */
+    }

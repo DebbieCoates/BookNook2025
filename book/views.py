@@ -4,13 +4,15 @@ from django.views import generic
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 from .models import Review
 from .models import Book
 from .forms import ReviewForm
-from django.http import HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
 from .forms import BookForm
 from .forms import ApprovalForm
+
 
 @login_required
 def pending_approval(request):
@@ -60,18 +62,16 @@ def update_book(request, pk):
         form = BookForm(instance=book)
     return render(request, 'book/update_book.html', {'form': form})
 
+
 @login_required
 def delete_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == 'POST':
         book.delete()
-        return redirect('book_list')  # Change 'book_list' to your desired redirect URL
+        messages.success(request, 'Book has been deleted.')
+        return redirect('SiteBookList')
     return render(request, 'book/delete_book.html', {'book': book})
 
-
-def book_list(request):
-    books = Book.objects.all()
-    return render(request, 'book/book_list.html', {'books': books})
 
 
 # FEATURED BOOKS ON MAIN PAGE
@@ -160,3 +160,7 @@ class ReviewDeleteView(DeleteView):
     def get_success_url(self):
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
+def SiteBookList(request):
+    books = Book.objects.all().annotate(review_count=Count('reviews'))
+    book_count = books.count()
+    return render(request, 'book/SiteBookList.html', {'books': books, 'book_count': book_count, 'messages': messages.get_messages(request)})

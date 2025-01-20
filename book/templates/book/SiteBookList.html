@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <div class="container mt-5 thin-black-border">
+        <h1 class="display-3">Site Book List</h1>
+
+        <h2>Total Books: {{ book_count }}</h2> <!-- Display the count of books -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th class="text-center">Approved</th>
+                    <th class="text-center">Featured</th>
+                    <th class="text-center">Uploaded By</th>
+                    <th class="text-center">Uploaded On</th>
+                    <th class="text-center">Review Count</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr class="{% if not book.approved %}table-warning{% endif %}">
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td class="text-center">{{ book.approved }}</td>
+                    <td class="text-center">{{ book.featured }}</td>
+                    <td class="text-center">{{ book.uploadedby.username }}</td>
+                    <td class="text-center">{{ book.uploadedOn|date:"Y-m-d H:i" }}</td>
+                    <td class="text-center">{{ book.review_count }}</td>
+                    <td class="text-center">
+                        <form action="{% url 'delete_book' book.pk %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

@@ -17,6 +17,6 @@ urlpatterns = [
     path('delete/<int:pk>/', views.delete_book, name='delete_book'),
 
     path('pending_approval/', views.pending_approval, name='pending_approval'),
-
+    path('SiteBookList/', views.SiteBookList, name='SiteBookList'),
+    path('delete_book/<int:pk>/', views.delete_book, name='delete_book'),
 ]
-
