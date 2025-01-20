@@ -69,14 +69,6 @@ def delete_book(request, pk):
     return render(request, 'book/delete_book.html', {'book': book})
 
 
-# def your_view(request):
-#     review = {
-#         'rating': 3,  # Example rating
-#     }
-#     return render(request, 'your_template.html', {'review': review})
-
-
-
 def book_list(request):
     books = Book.objects.all()
     return render(request, 'book/book_list.html', {'books': books})
@@ -97,7 +89,6 @@ class AllBooks(generic.ListView):
         return Book.objects.filter(approved=True)  # Filter to only include approved books
 
 # SINGLE BOOK LISTING
-# views.py
 class SingleBookListing(generic.DetailView):
     model = Book
     template_name = 'book/single_book_listing.html'
@@ -117,8 +108,6 @@ class SingleBookListing(generic.DetailView):
         return context
 
 
-
-
 class ReviewCreateView(CreateView):
     model = Review
     form_class = ReviewForm
@@ -135,9 +124,19 @@ class ReviewCreateView(CreateView):
 
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        book_id = self.request.GET.get('book_id')
+        if book_id:
+            book = get_object_or_404(Book, id=book_id)
+            context['book'] = book
+            context['author'] = book.author
+        return context
+
     def get_success_url(self):
         # Redirect back to the book's detail page after creating a review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
+
 
 class ReviewUpdateView(UpdateView):
     model = Review
@@ -148,12 +147,16 @@ class ReviewUpdateView(UpdateView):
         # Redirect back to the book's detail page after updating the review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
-
 class ReviewDeleteView(DeleteView):
     model = Review
     template_name = 'book/confirm_delete.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['book'] = self.object.book  # Pass the book to the template
+        context['review'] = self.object  # Pass the review to the template
+        return context
+
     def get_success_url(self):
-        # Redirect to the associated book's detail page after deletion
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 

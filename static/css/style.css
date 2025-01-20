@@ -232,3 +232,15 @@ footer {
 /* .center-text {
     text-align: center;
 } */
+
+
+
+    .d-flex.flex-column label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .d-flex.flex-column input[type="radio"] {
+        display: inline-block;
+        margin-right: 5px;
+    }
+

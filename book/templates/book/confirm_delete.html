@@ -1,18 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Confirm Delete</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Confirm Delete</h1>
-        <p>Are you sure you want to delete this review?</p>
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<main>
+    <div class="container mt-5 thin-black-border text-center">
+        <h1 class="display-3">Confirm Delete</h1>
+        <p class="text-center">Are you sure you want to delete this review for "{{ book.title }}"?</p>
+        <p><em>Review: "{{ review.body }}"</em></p> 
         <form method="post">
             {% csrf_token %}
-            <button type="submit">Yes, delete</button>
-            <a href="{{ request.META.HTTP_REFERER|default:'#'}}">Cancel</a>
+            <button type="submit" class="btn btn-primary">Yes, delete</button> 
+            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ request.META.HTTP_REFERER|default:'#' }}'">Cancel</button>
         </form>
     </div>
-</body>
-</html>
+</main>
+
+{% else %}
+You are not authorised to view this form, Please Login or Register to view
+{% endif %}
+{% endblock %}
+
