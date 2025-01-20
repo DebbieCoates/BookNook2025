@@ -30,6 +30,8 @@ def pending_approval(request):
 
 
 
+from django.contrib import messages
+
 @login_required
 def add_book(request):
     if request.method == 'POST':
@@ -38,10 +40,12 @@ def add_book(request):
             book = form.save(commit=False)
             book.uploadedby = request.user  # Set the current user as the uploader
             book.save()
+            messages.success(request, f'Book "{book.title}" added successfully and is now pending admin approval.')
             return redirect('all_books')  # Redirect to 'all_books' after successful addition
     else:
         form = BookForm()
     return render(request, 'book/add_book.html', {'form': form})
+
 
 
 @login_required
@@ -65,11 +69,11 @@ def delete_book(request, pk):
     return render(request, 'book/delete_book.html', {'book': book})
 
 
-def your_view(request):
-    review = {
-        'rating': 3,  # Example rating
-    }
-    return render(request, 'your_template.html', {'review': review})
+# def your_view(request):
+#     review = {
+#         'rating': 3,  # Example rating
+#     }
+#     return render(request, 'your_template.html', {'review': review})
 
 
 
