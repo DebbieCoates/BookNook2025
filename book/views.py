@@ -57,7 +57,7 @@ def update_book(request, pk):
         form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
-            return redirect('book_list')  # Change 'book_list' to your desired redirect URL
+            return redirect('all_books')  # Change 'book_list' to your desired redirect URL
     else:
         form = BookForm(instance=book)
     return render(request, 'book/update_book.html', {'form': form})

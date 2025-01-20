@@ -1,5 +1,7 @@
 # **BookNook**
 
+## Overview
+
 **BookNook** BookNook is a community platform designed to connect readers and literary enthusiasts, providing a space for members to easily discover new books. The platform caters to book lovers who wish to delve into book details, save their favorite titles for future reading, and engage with the community by writing reviews. Aimed primarily at adult readers, the site fosters connections among like-minded individuals through shared book reviews. Additionally, it offers robust tools for administrators to effectively manage content, moderate reviews, and maintain the book database.
 
 This project is part of the Code Institute's Full-Stack Developer course and focuses on the Django framework, database manipulation, and CRUD functionality.
@@ -15,72 +17,6 @@ Password: debbiesproject
 
 [Project Board](https://github.com/users/DebbieCoates/projects/13)
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Overview](#overview)
-3. [UX - User Experience](#ux---user-experience)
-    - [Design Inspiration](#design-inspiration)
-    - [Colour Scheme](#colour-scheme)
-    - [Font](#font)
-4. [Project Planning](#project-planning)
-    - [Strategy Plane](#strategy-plane)
-    - [Site Goals](#site-goals)
-    - [Agile Methodologies - Project Management](#agile-methodologies---project-management)
-    - [MoSCoW Prioritization](#moscow-prioritization)
-    - [Sprints](#sprints)
-    - [User Stories](#user-stories)
-5. [Scope Plane](#scope-plane)
-6. [Structural Plane](#structural-plane)
-7. [Skeleton & Surface Planes](#skeleton--surface-planes)
-    - [Wireframes](#wireframes)
-8. [Database Schema - Entity Relationship Diagram](#database-schema---entity-relationship-diagram)
-9. [Security](#security)
-10. [Features](#features)
-    - [User View - Registered/Unregistered](#user-view---registeredunregistered)
-    - [Role-Based Dashboard Features](#role-based-dashboard-features)
-    - [Role-Based Navigation](#role-based-navigation)
-    - [Soft Delete/Archiving for Patient Accounts](#soft-deletearchiving-for-patient-accounts)
-    - [Appointment Booking System](#appointment-booking-system)
-    - [Messaging System](#messaging-system)
-    - [Profile Management](#profile-management)
-    - [Confirmation Messages](#confirmation-messages)
-    - [CRUD Functionality](#crud-functionality)
-    - [Feature Showcase](#feature-showcase)
-11. [Future Features](#future-features)
-12. [Technologies & Languages Used](#technologies--languages-used)
-13. [Libraries & Frameworks](#libraries--frameworks)
-14. [Tools & Programs](#tools--programs)
-15. [Testing](#testing)
-  - [Validation Testing](#validation-testing)
-  - [User Testing](#user-testing)
-  - [Bugs](#bugs)
-16. [Deployment](#deployment)
-    - [Connecting to GitHub](#connecting-to-github)
-    - [Django Project Setup](#django-project-setup)
-    - [Cloudinary API](#cloudinary-api)
-    - [PostgreSQL](#postgresql)
-    - [Heroku deployment](#heroku-deployment)
-    - [Clone project](#clone-project)
-    - [Fork Project](#fork-project)
-17. [Privacy Policy](#privacy-policy)
-18. [Credits](#credits)
-    - [Code](#code)
-    - [Media](#media)
-    - [Additional reading/tutorials/books/blogs](#additional-readingtutorialsbooksblogs)
-19. [Acknowledgements](#acknowledgements)
-
-## Overview
-<!-- 
-HealMate is an online platform that allows users to:
-- Register and create a profile
-- Search for healthcare specialists by specialty
-- Schedule appointments with the desired healthcare provider
-- View profiles of registered specialists
-- Access a secure dashboard based on user roles (patients, doctors, admins)
-- Seamlessly manage medical appointments.
-
-The platform ensures accessibility across all devices and browsers, and its goal is to streamline the process of finding and scheduling medical consultations. In future iterations, HealMate will add functionality         for healthcare providers to manage their schedules, send reminders to patients, and offer tools for patient-doctor communication.
--->
 ## UX - User Experience
 
 ### Design Inspiration
