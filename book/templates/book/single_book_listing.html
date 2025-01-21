@@ -10,15 +10,15 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <div class="image-container">
+                <div class="image-container ">
                     {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                    <img class="card-img-top img-fluid" src="{% static 'images/default.png' %}" alt="placeholder image">
                     {% else %}
-                    <img class="card-img-top" src="{{ book.book_cover.url }}" alt="{{ book.title }}">
+
+                    <img src="{{ book.book_cover.url }}" class="card-img-top img-fluid" alt="Book Awaiging cover" onerror="this.onerror=null; this.src='/static/images/Book Awaiging image2.png';">
+
                     {% endif %}
-                    <div class="image-flash">
-                        <p class="author">Author: {{ book.author }}</p>
-                    </div>
+
                 </div>
             </div>
             <div class="col-sm-8">

@@ -112,20 +112,16 @@ footer {
     background-color: rgba(255, 255, 255, 0.0);
 }
 
-/* Style for the image container */
+
 .image-container {
-    height: 30vh;  /* Adjust the height as needed */
-    width: auto;
-    /* padding: 5px;   */
-    box-sizing: border-box;  /* Ensures padding is included in the total width and height */
-    overflow: hidden;  /* Ensures the images fit nicely */
+    height: 100%;
+    display: flex;
 }
 
-/* Style for the images */
-.image-container img {
-    height: 100%;  /* Makes the images take up the full height of the container */
-    width: auto;   
-    display: block;  /* Ensures there is no extra space around the images */
+.card-img-top {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image fits within the container */
 }
 
 .custom-card {
@@ -137,10 +133,6 @@ footer {
     padding: 10px;  /* Adds some padding inside the card body */
 }
 
-.card-img-top {
-    width: 100%;    /* Ensures image fits the card */
-    height: auto;   /* Maintains the image aspect ratio */
-}
 
 .custom-card .card-title {
     text-align: center;  /* Centers the card title */
@@ -172,7 +164,6 @@ footer {
     margin-top: 50px; 
     padding: 20px; 
     background-color: rgba(255, 255, 255, 0.0);
-    /* border-radius: 8px;  */
 } 
 
  /* .form-field-box { color: white;background-color: green; border: 1px solid #c3e6cb; border-radius: 8px; padding: 15px; margin-bottom: 15px;  } */
