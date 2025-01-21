@@ -91,46 +91,46 @@ The HealMate platform will include the following MVP functionalities:
 -->
 
 ## Structural Plane
-<!--
+
 The site is structured around an easy-to-use interface. The primary menu includes links to specialist searches, appointment bookings, and user profile management.
--->
+
 ## Skeleton & Surface Planes
 
 ### Wireframes
-<!--
+
 Wireframes were created for the following key pages to ensure an intuitive user journey:
 - **Home Page**
 
-![Homepage Wireframe](docs/wireframe/homepage-large-screen.png)
 
-![Homepage Wireframe](docs/wireframe/homepage-mobile.png)
+[![Homepage & Navigation](docs/wireframe/Homepage%20%26%20navigation.png)](https://example.com)
+
+
+<!-- ![Homepage Wireframe](docs/wireframe/homepage-mobile.png) -->
 
 - **Specialist Search Results**
 
-![Homepage Wireframe](docs/wireframe/search-result-large-screen.png)
+<!-- ![Homepage Wireframe](docs/wireframe/search-result-large-screen.png) -->
 
-![Homepage Wireframe](docs/wireframe/search-result-mobile.png)
+<!-- ![Homepage Wireframe](docs/wireframe/search-result-mobile.png) -->
 
-- **Appointment Booking**
+- **Member Profile**
 
-![Homepage Wireframe](docs/wireframe/booking-page-large-screen.png)
-
-![Homepage Wireframe](docs/wireframe/booking-page-mobile.png)
+![Homepage Wireframe](docs/wireframe/member profile.png)
 
 - **User Dashboards** (Patient and Specialist)
 - **Admin Panel**
 
 Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices.
 
-## Database Schema - Entity Relationship Diagram
+<!-- ## Database Schema - Entity Relationship Diagram
 The ERD for HealMate illustrates the relationships between the users, specialists, appointments, and more. This is essential to demonstrate the relationships between the different models in the PostgreSQL database.
 
 The ERD also demonstrates the platform's role-based structure. Each user is assigned to a specific group (patient, specialist, or admin) that determines their access level. PatientProfile and SpecialistProfile models are linked to the User model, and each profile type has specific fields relevant to their role. Admins have broader access to manage both specialist vetting and platform data.
 
 ![ERD Illustration](docs/erd/erd-healmate.png)
 
-The above ERD was generated using Python Extension - pygraphviz and pydotplus. Documentation at https://django-extensions.readthedocs.io/en/latest/graph_models.html.
--->
+The above ERD was generated using Python Extension - pygraphviz and pydotplus. Documentation at https://django-extensions.readthedocs.io/en/latest/graph_models.html. -->
+
 ## Security
 <!--
 All data is securely handled with Django’s security features, including:
