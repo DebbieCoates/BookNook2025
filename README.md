@@ -101,7 +101,7 @@ The site is structured around an easy-to-use interface. The primary menu include
 Wireframes were created for the following key pages to ensure an intuitive user journey:
 - **Home Page**
 
-<!-- [![Homepage & Navigation](docs/wireframe/Homepage%20%26%20navigation.png)](https://example.com) -->
+![Homepage & Navigation](docs/wireframe/Homepage%20%26%20navigation.png)
 
 ![Home Wireframe](Homepage & navigation.png "Home Page & navigation")
 
