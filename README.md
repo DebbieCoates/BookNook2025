@@ -82,13 +82,13 @@ I used an agile approach to project management. The HealMate development process
 -->
 
 ## Scope Plane
-<!--
-The HealMate platform will include the following MVP functionalities:
-- User registration and role-based dashboards.
-- Search and filtering system for specialists.
+
+The BookNook platform will include the following MVP functionalities:
+- User registration and role-based navigation.
+
 - Appointment scheduling with available specialists.
 - Specialist profiles showcasing specialty, experience, and availability.
--->
+
 
 ## Structural Plane
 
@@ -99,22 +99,27 @@ The site is structured around an easy-to-use interface. The primary menu include
 ### Wireframes
 
 Wireframes were created for the following key pages to ensure an intuitive user journey:
+
 - **Home Page**
+![Homepage & Navigation](booknook/docs/wireframes/homepage_and_navigation.png)
 
-![Homepage & Navigation](docs/wireframe/Homepage%20%26%20navigation.png)
+- **Books**
+![Homepage & Navigation](booknook/docs/wireframes/Books.png)
 
-![Home Wireframe](Homepage & navigation.png "Home Page & navigation")
+- **Book List**
+![Homepage & Navigation](booknook/docs/wireframes/BookList.png)
 
-
-- **Specialist Search Results**
-
-<!-- ![Homepage Wireframe](docs/wireframe/search-result-large-screen.png) -->
-
-<!-- ![Homepage Wireframe](docs/wireframe/search-result-mobile.png) -->
+- **Book List**
+![Homepage & Navigation](booknook/docs/wireframes/Add_book.png)
 
 - **Member Profile**
+![Member Profile](booknook/docs/wireframes/member_profile.png)
 
-![Homepage Wireframe](docs/wireframe/member profile.png)
+- **Pending Approval**
+![Member Profile](booknook/docs/wireframes/Pending_Approval.png)
+
+- **Wishlist**
+![Member Profile](booknook/docs/wireframes/wishlist.png)
 
 - **User Dashboards** (Patient and Specialist)
 - **Admin Panel**
@@ -131,111 +136,24 @@ The ERD also demonstrates the platform's role-based structure. Each user is assi
 The above ERD was generated using Python Extension - pygraphviz and pydotplus. Documentation at https://django-extensions.readthedocs.io/en/latest/graph_models.html. -->
 
 ## Security
-<!--
+
 All data is securely handled with Django’s security features, including:
 - CSRF protection for form submissions.
 - Data encryption for sensitive information like passwords using Django's built-in authentication.
 - Role-based access control to restrict sensitive data to authorized users.
 
-Role-based access control (RBAC) is implemented using Django's Group and Permission systems. Patients, specialists, and admins are grouped based on their role, and their access to features and sensitive information is restricted accordingly. Patients can only access their own medical data and booking history, while specialists can only view data related to their consultations. Admins have the broadest access for system management.
--->
 ## Features
 
 ### User View - Registered/Unregistered
-<!--
-HealMate offers distinct user views. Unregistered users can search for specialists, but registered users have full access to the appointment system and dashboard functionalities.
 
-### User Registration Process
-- **Patients:** When a new user registers, they are automatically assigned to the "Patient" group. This ensures that all users begin with patient privileges and access, allowing them to book appointments and view specialist profiles. During the registration process, essential patient profile information is captured (e.g., contact number, address, date of birth, gender). After the registration is complete, a corresponding PatientProfile is automatically created and associated with the user.
-
-- **Specialists:** During the registration process, essential patient profile information is captured (e.g., contact number, address, date of birth, gender). After the registration is complete, a corresponding PatientProfile is automatically created and associated with the user.
-
-- **Admins:** Admin accounts are created manually by other existing admins or superusers within the Django administration area. This ensures that the creation of administrative-level accounts is strictly controlled and follows the platform's internal policies.
-
-This registration flow was chosen to ensure role-based control and security. Patients are the primary users of the platform, and allowing them to register freely makes the service accessible. However, specialists and admins require a higher level of trust and validation, so they undergo a manual vetting process. This ensures that only qualified professionals and authorized admins can manage sensitive tasks such as consultations and platform settings, which helps maintain the integrity and security of the system.
-
-### Role-Based Dashboard Features
-
-**HealMate includes role-based dashboards for different types of users:**
-- **Patient Dashboard:** Allows patients to view their profile, manage appointments, and access medical records.
-
-- **Specialist Dashboard:** Specialists can manage their availability, view and approve appointments, and review patient profiles.
-
-- **Admin Dashboard:** Admins can manage users (patients, specialists) and vet specialist applications. They also have access to system-wide settings.
-
-### Role-Based Navigation
-(Not the same as Role-Based Dashboard Features)
-
-The navigation bar in HealMate adapts dynamically based on the user's role. This feature ensures that users see only the relevant options for their role, improving usability and reducing clutter in the interface.
-
-- **Specialists**: When logged in, specialists will only see links to their dashboard, profile, password change, and logout options. General site navigation like "Home," "About," or "Join Us" will be hidden.
-- **Patients**: Logged-in patients have access to their dashboard, profile, password change, and logout options, while still seeing general navigation links like "Home" and "About."
-- **Admins**: Admins will see their dedicated dashboard link and other relevant options.
-- **Non-Authenticated Users**: Users who are not logged in will only see options to log in or register on the platform.
-
-This role-based navigation provides a tailored experience for every user type, streamlining access to the most relevant pages.
-
-
-### Soft Delete/Archiving for Patient Accounts
-HealMate includes a soft delete mechanism to ensure data integrity and prevent accidental loss of important user information. Instead of permanently deleting accounts, users can request a soft deletion, which deactivates their account while retaining their data in the system.
-
-**How It Works:**
-- **Patient Account Deactivation:** Patients can request to have their account deactivated through a user-friendly option on their dashboard.
-- **Data Preservation:** When a patient requests account deletion, their profile is marked as inactive rather than removed from the database. This means the patient’s information, appointments, and records remain available for future use or audit purposes.
-- **Admin Reactivation:** Admins have the ability to reactivate patient accounts from the Django admin panel. This ensures that patients can return to the platform with all their previous data intact, avoiding any data loss or system disruptions.
-
-**Benefits:**
-- **System Integrity:** Prevents errors that could arise from full account deletions, such as broken relationships with other models (e.g., appointments, messages, feedback).
-- **User Flexibility:** Patients can choose to deactivate their account temporarily and return at a later date without losing their medical history or profile information.
-- **Security:** Only admins have the power to fully manage account reactivations, ensuring oversight and control over patient data.
-
-
-### Appointment Booking System
-HealMate allows patients to book appointments with specialists directly through the platform. The system includes:
-- **Specialist Search**: Patients can search for specialists based on name, specialty, or location.
-- **Book Appointment**: Patients can book an appointment directly from the specialist's profile page.
-- **Appointment Management**: Specialists and patients can view and manage upcoming appointments through their respective dashboards.
-- **Appointment Cancellation**: Patients and specialists have the ability to cancel appointments with a confirmation prompt.
-
-
-### Messaging System
-HealMate provides a secure messaging system for communication between patients and specialists:
-- **Inbox**: Users can view received messages and reply to messages directly from their inbox.
-- **Send Message**: Patients can send messages to specialists they have appointments with, and vice versa.
-- **Message History**: All sent and received messages are stored and displayed in the user's message history.
-- **Real-Time Messaging**: The system is designed to support real-time messaging between users.
-
-
-### Profile Management
-Each user can manage their profile through the dashboard:
-- **Patient Profile**: Patients can view and update personal details such as contact information, medical history, and emergency contacts.
-- **Specialist Profile**: Specialists can view and update their bio, specialty, location, and upload profile images.
-- **Profile Images**: Specialists can upload and update their profile image, which appears on the search results and specialist details page.
-
-### Confirmation Messages
-- **User Feedback**: Confirmation messages are shown to users when important actions are performed, such as logging in, booking an appointment, or sending a message. These messages help ensure a smooth user experience by providing feedback on successful actions.
-
-### CRUD Functionality
-
-The following **CRUD** functionalities are implemented within HealMate:
-
-- **Create**: Patients are automatically assigned a profile upon registration. This profile includes key fields such as contact information, address, and medical history.
-  
-- **Read**: Patients can view their profile and associated information, including medical history and emergency contact details, from their dashboard.
-
-- **Update**: Patients have the ability to update their profile information, including personal data (e.g., contact number, address, and medical history), via a dedicated "Edit Profile" page.
-
-- **Delete (Soft Delete)**: Patients can request to deactivate their account through a **soft delete** mechanism. This deactivation preserves the patient’s data within the system while preventing further access until reactivation by an admin. The admin can reactivate the account from the Django admin panel at any time, restoring full access for the patient.
-
-This CRUD cycle is central to the **PatientProfile** model, ensuring that users can fully manage their personal information while providing system integrity with the soft delete functionality.
 
 -->
 ## Future Features
-<!--
+
 I plan to implement the following in future iterations:
-- Push notifications for upcoming appointments.
-- Integrate payment system for paid consultations.
--->
+- xxx.
+- xxx.
+
 ## Technologies & Languages Used
 - HTML5 - Markup language for structuring the website
 - CSS3 - Styling language for designing the layout and visual aesthetics
@@ -428,8 +346,8 @@ The correct template for specialist search results is now rendering as intended.
 
 -->
 ## Deployment
-<!--
-All code for this project was written in Visual Studio/Gitpod as the integrated development environment. GitHub was used for version control, and the application was deployed to Heroku from GitHub.
+
+All code for this project was written in Gitpod as the integrated development environment. GitHub was used for version control, and the application was deployed to Heroku from GitHub.
 
 ### Pre-Deployment
 
@@ -458,7 +376,7 @@ The steps for deploying to Heroku are as follows (Experience from previous Djang
 9. **Buildpack:** Select Node.js and Python as the buildpacks for your project.
 10. **Deploy:** Once the configuration is complete, click the "Deploy Branch" button. After successful deployment, a "View" button will appear to take you to the live site.
 
-The live link for this project can be found here: <a href="https://healmate-378e458234ec.herokuapp.com/" target="_blank">HealMate</a>
+The live link for this project can be found here: <a href="https://booknook2025-4c3ce9e8c031.herokuapp.com/" target="_blank">BookNook</a>
 
 ### Fork this Repository
 
@@ -487,32 +405,25 @@ As part of my **HealMate** project, I am dedicated to ensuring that users’ per
 
 - **Data Collection**: HealMate, as a project, collects personal data during user registration and profile setup. This includes:
   - First and Last Name
-  - Contact Information (Phone Number, Email)
+  - Contact Information (Email)
   - Date of Birth
-  - Gender
-  - Medical History
-  - Emergency Contact Information
+  - Bio
 
 - **Data Usage**: The information gathered is used solely for educational purposes, including:
   - Managing user profiles.
-  - Facilitating appointment bookings between patients and specialists.
-  - Sending notifications related to appointments or system updates.
 
 - **Data Sharing**: As this is a student project, personal data will not be shared with any third parties. It will only be used for demonstrating the functionality of the project. All information remains confidential and will not be distributed beyond the scope of the HealMate project.
 
 - **Security**: While this project is intended for educational use, I strive to implement best practices for data security using the Django framework’s built-in tools. Personal information is securely stored in the database and protected against unauthorized access.
 
-- **User Rights**: Users of this platform, as part of this project, have the right to request modifications or deletion of their data. For any requests or concerns about personal data usage in this project, please contact the project owner at the provided email address.
+As this is an educational project, the privacy and data handling policies may evolve over time as more features are added and refined.
 
-Since this is an educational project, the privacy and data handling policies may evolve over time as more features are added and refined.
-
--->
 ## Credits
-<!--
+
 ### Code
 - **Django Documentation**: The official docs were invaluable in setting up the project structure and solving specific issues.
 - **Django Crispy Forms Documentation**: Used to streamline form rendering.
-- **Chatgpt AI**: For images and some coding ideas
+- **coPiklot**: For  coding ideas
 - **Favicon.io**: For Favicon generation.
 - **Google Fonts**: For typography.
 - **Mark Brisco** - Code Institute: For general guidance.
@@ -526,14 +437,18 @@ Since this is an educational project, the privacy and data handling policies may
 - **Django for Beginners** by William S. Vincent.
 -->
 ## Acknowledgements
-<!--
+
 I would like to extend my heartfelt gratitude to the following individuals and organizations whose support, guidance, and inspiration have been invaluable in the development of this project.
 
 ### Mentors and Advisors
+
 - **Amy Richardson** – Sincere gratitude to Amy, our tutor and facilitator, whose unwavering guidance and expertise were pivotal throughout this journey. Her mentorship provided the clarity and support needed to navigate challenges, ultimately elevating the quality of this project. Her dedication and encouragement made a profound impact on my progress and learning.
 
 - **Mark Briscoe** – A heartfelt thank you to Mark, our dedicated tutor, whose unwavering support, insightful feedback, and constructive criticism were instrumental in guiding this project to completion. His depth of knowledge and encouragement not only enhanced my understanding but also inspired me to consistently improve my work. This project would not have been the same without his invaluable mentorship.
 
+- **Roo** – xxx
+
+- **Spencer** – xxxxx
 
 ### Supportive Friends and Family
 - My friends and family, especially, for their encouragement and patience during this project. Your belief in me kept me motivated and focused.
@@ -543,4 +458,4 @@ I would like to extend my heartfelt gratitude to the following individuals and o
 
 ### Final Note
 This project would not have been possible without the support, advice, and inspiration of each individual and organization mentioned. Thank you for being a part of this journey.
--->
+
