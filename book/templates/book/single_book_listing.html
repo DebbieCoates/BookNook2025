@@ -28,9 +28,10 @@
                     <p>{{ book.synopsis }}</p>
                 </div>
                 <div>
-                    <a href="{% url 'review_add' %}?book_id={{ book.id }}" class="btn btn-secondary btn-sm">Review this
-                        Book</a>
+                    <a href="{% url 'review_add' %}?book_id={{ book.id }}" class="btn btn-secondary btn-sm">Review this Book</a>
                     <a href="{% url 'add_to_wishlist' book.id %}" class="btn btn-secondary btn-sm">Add to Wishlist</a>
+
+                    <a href="{% url 'update_book' pk=book.pk %}" class="btn btn-secondary btn-sm">Update Book</a>
 
                 </div>
             </div>

@@ -1,23 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block content %}
 {% if user.is_authenticated %}
+{% load crispy_forms_tags %}
 <main>
-    <div class="container mt-5">
-        <h1>Update Book</h1>
+    <div class="container mt-5 thin-black-border">
+        <h1 class="display-3">Update Book</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Save</button>
+            {{ form.title | as_crispy_field }}
+            {{ form.author | as_crispy_field }}
+            {{ form.synopsis | as_crispy_field }}
+            {{ form.category | as_crispy_field }}
+            {{ form.book_cover | as_crispy_field }}
+            {{ form.part_of_series | as_crispy_field }}
+            {{ form.ISBN | as_crispy_field }}
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
-
 </main>
-
 {% else %}
-You are not authorised to view this form, Please Login or Register to view
+You are not authorized to view this form. Please Login or Register to view.
 {% endif %}
 {% endblock %}
-

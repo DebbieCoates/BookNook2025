@@ -13,6 +13,7 @@ from .forms import ReviewForm
 from .forms import BookForm
 from .forms import ApprovalForm
 from django.contrib import messages
+from django.urls import reverse
 
 @login_required
 def pending_approval(request):
@@ -54,10 +55,12 @@ def update_book(request, pk):
         form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
-            return redirect('all_books')  # Change 'book_list' to your desired redirect URL
+            return redirect(reverse('single_book_listing', kwargs={'pk': book.pk}))  # Use reverse with kwargs
     else:
         form = BookForm(instance=book)
     return render(request, 'book/update_book.html', {'form': form})
+
+
 
 
 @login_required
