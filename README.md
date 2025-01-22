@@ -22,7 +22,7 @@ Password: debbiesproject
 ### Design Inspiration
 
 My inspiration for designing this book review project stems from my deep love of books. I aimed to create a clean and 
-uncluttered interface, with clear, crisp forms and reader-friendly fonts, to ensure an enjoyable and seamless experience for all book lovers."
+uncluttered interface, with clear, crisp forms and reader-friendly fonts, to ensure an enjoyable and seamless experience for all book lovers.
 
 ### Colour Scheme
 <!--
@@ -82,7 +82,6 @@ I used an agile approach to project management.
 The BookNook platform will include the following MVP functionalities:
 - User registration and role-based navigation.
 
-
 ## Structural Plane
 
 The site is structured around an easy-to-use interface. The primary menu includes links to specialist searches, appointment bookings, and user profile management.
@@ -112,17 +111,21 @@ Wireframes were created for the following key pages to ensure an intuitive user 
 ![Pending Apprival ](booknook/docs/Wireframes/Pending_Approval.png)
 
 - **Wishlist**
-![Wishlist](booknook/docs/Wireframes/wishlist.png)
+
+![Wishlist ](booknook/docs/Wireframes/wishlist.png)
 
 - **Django Admin**
 
 - Django Admin panel, accessable via URL/Admin with correct ccredentials
 
 ![Adnmin Logon](booknook/docs/screenviews/Admin.png)
-![Admin List ](booknook/docs/screenviews/Admin Lists.png)
+![Admin List](booknook/docs/screenviews/admin_lists.png)
 
 
 Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices.
+
+
+
 
 
 ## Data Models
@@ -282,6 +285,7 @@ I plan to implement the following in future iterations:
 - The ability to reccomend a book to other users.
 
 ## Technologies & Languages Used
+
 - HTML5 - Markup language for structuring the website
 - CSS3 - Styling language for designing the layout and visual aesthetics
 - JavaScript - For interactivity and DOM manipulation on the frontend
