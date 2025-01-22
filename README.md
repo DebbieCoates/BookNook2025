@@ -20,9 +20,10 @@ Password: debbiesproject
 ## UX - User Experience
 
 ### Design Inspiration
-<!--
-My inspiration for HealMate came from a personal experience during a routine visit to my GP. I thought about how many medical consultations, especially those that don’t require physical examinations, could easily be handled online. This thought extended to pregnant women, who often need guidance and reassurance from their midwives or doctors but don’t necessarily need an in-person visit. The convenience of a digital platform for such consultations became clear. The name HealMate reflects the idea of a supportive, reliable partner in managing one's health—much like popular health apps such as ClueMate, where ‘Mate’ signifies companionship and guidance in managing health.
--->
+
+My inspiration for designing this book review project stems from my deep love of books. I aimed to create a clean and 
+uncluttered interface, with clear, crisp forms and reader-friendly fonts, to ensure an enjoyable and seamless experience for all book lovers."
+
 ### Colour Scheme
 <!--
  In line with the healthcare theme, I chose a neutral, clean palette:
@@ -86,8 +87,6 @@ I used an agile approach to project management. The HealMate development process
 The BookNook platform will include the following MVP functionalities:
 - User registration and role-based navigation.
 
-- Appointment scheduling with available specialists.
-- Specialist profiles showcasing specialty, experience, and availability.
 
 
 ## Structural Plane
@@ -126,14 +125,11 @@ Wireframes were created for the following key pages to ensure an intuitive user 
 
 Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices.
 
-<!-- ## Database Schema - Entity Relationship Diagram
-The ERD for HealMate illustrates the relationships between the users, specialists, appointments, and more. This is essential to demonstrate the relationships between the different models in the PostgreSQL database.
+ ## Database Schema - Entity Relationship Diagram
+The ERD for HealMate illustrates the relationships between the users, members, Books, Reviews and wishlist. This is essential to demonstrate the relationships between the different models in the PostgreSQL database.
 
-The ERD also demonstrates the platform's role-based structure. Each user is assigned to a specific group (patient, specialist, or admin) that determines their access level. PatientProfile and SpecialistProfile models are linked to the User model, and each profile type has specific fields relevant to their role. Admins have broader access to manage both specialist vetting and platform data.
 
-![ERD Illustration](docs/erd/erd-healmate.png)
-
-The above ERD was generated using Python Extension - pygraphviz and pydotplus. Documentation at https://django-extensions.readthedocs.io/en/latest/graph_models.html. -->
+![ERD Illustration](booknook/docs/wireframes/Booknook_ERD.png)
 
 ## Security
 
@@ -144,7 +140,29 @@ All data is securely handled with Django’s security features, including:
 
 ## Features
 
-### User View - Registered/Unregistered
+### HomePage (All)
+
+![HomePage](booknook/docs/wireframes/Homepage.png)
+ 
+- Hero Section: A welcoming banner with a catchy tagline introducing the Book Nook to potential users. 
+
+- Navigation Bar: A clean navigation bar allowing users to access the Home, and Login/Register options. Responsive design ensures usability across devices.
+
+![Login](booknook/docs/wireframes/login.png)
+![Register](booknook/docs/wireframes/register.png)
+
+- Featured Books: A selection of popular or recently added books to engage visitors.
+
+### Books
+
+### Add Book
+
+### Pending Approvals (Admin Only)
+
+### Book List (Admin Only)
+
+### Profile
+
 
 
 -->

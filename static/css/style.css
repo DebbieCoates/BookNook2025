@@ -4,12 +4,9 @@
 
 
 :root {
-    /* fonts */
-    /* --title: 'Outfit', sans-serif;
-    --main-font: 'Montserrat', sans-serif; */
 
     --title: 'Poppins', sans-serif;
-    --main-font: 'Roboto', sans-serif;
+    --: 'Roboto', sans-serif;
 
     /* colors */
     --white: #ffffff;
@@ -45,8 +42,6 @@ main {
     height: 300px;  /* Optional: Set the container height */
     color: black;  /* Optional: Set the text color to make it readable */
 }
-
-
 
 /* Footer styles */
 footer {
@@ -112,7 +107,6 @@ footer {
     background-color: rgba(255, 255, 255, 0.0);
 }
 
-
 .image-container {
     height: 100%;
     display: flex;
@@ -133,7 +127,6 @@ footer {
     padding: 10px;  /* Adds some padding inside the card body */
 }
 
-
 .custom-card .card-title {
     text-align: center;  /* Centers the card title */
     padding: 10px 0;     /* Adds padding to the title */
@@ -150,13 +143,11 @@ footer {
     margin-top: 10px; /* Adjust this value as needed */
 }
 
-
 .toast-top-custom {
     top: 400px;
     left: 50%;
     transform: translateX(-50%);
 }
-
 
 .profile-container { 
     max-width: 600px; 
@@ -166,75 +157,55 @@ footer {
     background-color: rgba(255, 255, 255, 0.0);
 } 
 
- /* .form-field-box { color: white;background-color: green; border: 1px solid #c3e6cb; border-radius: 8px; padding: 15px; margin-bottom: 15px;  } */
-
 .thin-black-border {
-    border: 1px solid black; /* Thin solid black border */
-    border-radius: 15px; /* Curved corners */
-    padding: 20px; /* Optional: Add padding for better spacing */
+    border: 1px solid black; 
+    border-radius: 15px; 
+    padding: 20px; 
 }
 
-/* Container padding for 5px spacing */
+
 .card-container {
     padding: 2.5px;
 }
 
-/* Fixed size for the card */
+
 .card-fixed-size {
     width: 100%;
-    height: 600px; /* Adjust height as needed */
+    height: 600px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* Fixed size for the card image */
+
 .card-fixed-size .card-img-top {
     flex: 0 1 auto;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover; 
-    /* Ensure the image covers the space without distortion */
 }
 
-/* Fixed size for the card title */
 .card-title-fixed {
     flex: 0 0 auto; /* Prevent the title from stretching */
     margin-bottom: 10px;
 }
 
-/* Fixed size for the card text */
+
 .card-text-fixed {
-    flex: 1 0 auto; /* Allow the text to take the remaining space */
+    flex: 1 0 auto;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 60px; /* Adjust height as needed */
+    max-height: 60px; 
 }
 
-/* Align the button to the bottom */
 .card-body {
     display: flex;
     flex-direction: column;
 }
 
 .card-body .mt-auto {
-    margin-top: auto; /* Push the button to the bottom */
+    margin-top: auto; 
 }
 
-/* .center-text {
-    text-align: center;
-} */
-
-
-/* 
-    .d-flex.flex-column label {
-        display: block;
-        margin-bottom: 10px;
-    }
-    .d-flex.flex-column input[type="radio"] {
-        display: inline-block;
-        margin-right: 5px;
-    } */
-
-    .table-warning {
-        background-color: #fff3cd; /* Light yellow background for warning */
-    }
+.table-warning {
+    background-color: #fff3cd; /* Light yellow background for warning */
+}
