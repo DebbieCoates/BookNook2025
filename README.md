@@ -45,30 +45,25 @@ uncluttered interface, with clear, crisp forms and reader-friendly fonts, to ens
 The primary objective of HealMate is to bridge the gap between patients and healthcare providers. By offering an intuitive interface, users can easily search for medical professionals, book appointments, and receive necessary care without hassle.
 -->
 ### Site Goals
-<!--
-- Provide patients with a user-friendly platform to book appointments with various specialists.
-- Allow doctors to manage their appointments and patient information.
-- Offer an intuitive interface with role-based dashboards for admins, specialists, and patients.
--->
+
+- Community Engagement: Foster a sense of community among book lovers, this helps members connect, share their thoughts, and build relationships around their mutual love of books.
+
+- User-Friendly Interface: Ensure the website is easy to navigate with a clean and intuitive design. This includes clear menus, and responsive design for various devices. A user-friendly interface makes it easier for members to find and engage with content.
+
+- Allows Admins to manage the website.
+
 
 ### Agile Methodologies - Project Management
-<!--
-I used an agile approach to project management. The HealMate development process was broken into sprints, and tasks were added to the GitHub project board to be tracked and managed through issues.
--->
+
+I used an agile approach to project management. 
+
 ### MoSCoW Prioritization
+
 <!--
-- **Must-Haves:** User registration and login, specialist search, appointment booking, role-based dashboards.
+- **Must-[Haves]:** User registration and login, specialist search, appointment booking, role-based dashboards.
 - **Should-Haves:** Feedback system, health tools, advanced filtering options.
 - **Could-Haves:** Profile pictures for users and specialists, messaging system.
 - **Won’t-Haves:** Full payment integration, doctor-patient messaging for now.
--->
-### Sprints
-<!--
-- **Sprint 1:** Initial Setup - Project, repository, environment setup.
-- **Sprint 2:** User Authentication & Role-Based Dashboards.
-- **Sprint 3:** Specialist Search & Appointment Booking System.
-- **Sprint 4:** Static Pages & UI/UX Improvements.
-- **Sprint 5:** Deployment & Testing.
 -->
 
 ## User Stories
@@ -88,7 +83,6 @@ The BookNook platform will include the following MVP functionalities:
 - User registration and role-based navigation.
 
 
-
 ## Structural Plane
 
 The site is structured around an easy-to-use interface. The primary menu includes links to specialist searches, appointment bookings, and user profile management.
@@ -100,36 +94,122 @@ The site is structured around an easy-to-use interface. The primary menu include
 Wireframes were created for the following key pages to ensure an intuitive user journey:
 
 - **Home Page**
-![Homepage & Navigation](booknook/docs/wireframes/homepage_and_navigation.png)
+![Homepage & Navigation](booknook/docs/Wireframes/homepage_and_navigation.png)
 
 - **Books**
-![Homepage & Navigation](booknook/docs/wireframes/Books.png)
+![Books](booknook/docs/Wireframes/Books.png)
 
 - **Book List**
-![Homepage & Navigation](booknook/docs/wireframes/BookList.png)
+![Book List](booknook/docs/Wireframes/BookList.png)
 
 - **Book List**
-![Homepage & Navigation](booknook/docs/wireframes/Add_book.png)
+![Add Book](booknook/docs/Wireframes/Add_book.png)
 
 - **Member Profile**
-![Member Profile](booknook/docs/wireframes/member_profile.png)
+![Member Profile](booknook/docs/Wireframes/member_profile.png)
 
 - **Pending Approval**
-![Member Profile](booknook/docs/wireframes/Pending_Approval.png)
+![Pending Apprival ](booknook/docs/Wireframes/Pending_Approval.png)
 
 - **Wishlist**
-![Member Profile](booknook/docs/wireframes/wishlist.png)
+![Wishlist](booknook/docs/Wireframes/wishlist.png)
 
-- **User Dashboards** (Patient and Specialist)
-- **Admin Panel**
+- **Django Admin**
+
+- Django Admin panel, accessable via URL/Admin with correct ccredentials
+
+![Adnmin Logon](booknook/docs/screenviews/Admin.png)
+![Admin List ](booknook/docs/screenviews/Admin Lists.png)
+
 
 Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices.
 
- ## Database Schema - Entity Relationship Diagram
+
+## Data Models
+
+### Book Model:
+
+- Each book in our club will have attributes such as title, author, description
+
+### Review Model:
+
+- The Review model will store reviews users leave for each book. It is linked both to the Book and the User models.
+
+### WishList Model:
+
+- The WishList Model will store information about the books that users have added to their "wishlist". It is linked both to the Book and the User models.
+
+### User Model:
+
+- The User model is provided by Django.
+
+### Relationships:
+
+#### User <-> Review:
+
+- One-to-many relationship: One user can write multiple reviews, but each review belongs to only one user.
+
+- Foreign Key: user_id in the Review table references the id in the User table.
+
+#### Book <-> Review:
+
+- One-to-many relationship: One book can have multiple reviews, but each review is linked to only one book.
+
+- Foreign Key: book_id in the Review table references the id in the Book table.
+
+ #### User <-> WishList:
+
+- One-to-many relationship: One user can have many wish list entries.
+
+- Foreign Key: user_id in the User table references the id in the WishList table.
+
+#### Book <-> WishList:
+
+- One-to-many relationship: Each book can appear in the "Want-to-read" list of multiple users.
+
+- Foreign Key: book_id in the Book table references the id in the WishList table.
+
+### Models
+
+ **Book Model**
+- title: The title of the book.
+- author: The author of the book.
+- synopsis: A brief summary of the book.
+- slug: A URL-friendly version of the title.
+- book_cover: The cover image of the book stored in Cloudinary.
+- part_of_series: A boolean indicating if the book is part of a series.
+- ISBN: The International Standard Book Number.
+- featured: A boolean indicating if the book is featured.
+- approved: A boolean indicating if the book is approved.
+- uploadedby: A foreign key linking to the User who uploaded the book.
+- uploadedOn: The date and time when the book was uploaded.
+- category: The category of the book.
+
+ **member Model**
+- user: A one-to-one relationship with the User model.
+- bio: A short biography of the member.
+- location: The location of the member.
+- birth_date: The birth date of the member.
+
+ **Review Model**
+- book: A foreign key linking to the Book model (many-to-one relationship). This indicates that multiple reviews can be written for a single book.
+- author: A foreign key linking to the User model (many-to-one relationship). This indicates that multiple reviews can be authored by a single user.
+- body: The content of the review.
+- approved: A boolean indicating if the review is approved.
+- created_on: The date and time when the review was created.
+- rating: The rating given to the book, with a validator to ensure it's between 1 and the maximum allowed value.
+
+ **Wishlist Model**
+- user: A foreign key linking to the User model. This indicates that multiple wishlists can belong to a single user.
+- book: A foreign key linking to the Book model. This indicates that multiple books can be added to a single user's wishlist.
+- added_at: The date and time when the book was added to the wishlist.
+
+
+### ER Diagram
+
 The ERD for HealMate illustrates the relationships between the users, members, Books, Reviews and wishlist. This is essential to demonstrate the relationships between the different models in the PostgreSQL database.
 
-
-![ERD Illustration](booknook/docs/wireframes/Booknook_ERD.png)
+![ERD Illustration](booknook/docs/Wireframes/Booknook_ERD.png)
 
 ## Security
 
@@ -209,6 +289,7 @@ I plan to implement the following in future iterations:
 - PostgreSQL - Database management system for storing data
 - Cloudinary - Cloud-based image storage solution
 - Whitenoise - For serving static files directly from Django
+- SmartDraw - for ERD
 
 ## Libraries & Frameworks
 - **Django** - Backend framework
