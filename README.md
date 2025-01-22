@@ -142,35 +142,64 @@ All data is securely handled with Django’s security features, including:
 
 ### HomePage (All)
 
-![HomePage](booknook/docs/wireframes/Homepage.png)
+![HomePage](booknook/docs/screenviews/Homepage.png)
  
 - Hero Section: A welcoming banner with a catchy tagline introducing the Book Nook to potential users. 
 
 - Navigation Bar: A clean navigation bar allowing users to access the Home, and Login/Register options. Responsive design ensures usability across devices.
 
-![Login](booknook/docs/wireframes/login.png)
-![Register](booknook/docs/wireframes/register.png)
+![Login](booknook/docs/screenviews/login.png)
+![Register](booknook/docs/screenviews/register.png)
 
 - Featured Books: A selection of popular or recently added books to engage visitors.
 
-### Books
+![Feaatured Books](booknook/docs/screenviews/featured_books.png)
+
+- If a user is logged in, clicking more will lead to more details of the book selected.
+
+### Books (Loggin in User)
+
+![Books](booknook/docs/screenviews/books.png)
+
+- Paginated view of books for user to select
+- More button leading to more book details
+
+![Books](booknook/docs/screenviews/book.png)
 
 ### Add Book
 
+- Add Biik Sectiion which enables members & Admin to upload Books onto the website
+- Books wont show on theWebsite until approved by Admin.
+
+![Books](booknook/docs/screenviews/add_book.png)
+
 ### Pending Approvals (Admin Only)
+
+- Pending Approvals section listing all books that have been uploaded to the website for approval.
+- Once approved the book will be added to the website for all to view and/or review
+
+![Pending Approvals](booknook/docs/screenviews/pending_approval.png)
 
 ### Book List (Admin Only)
 
+- Admin view of All Books
+- Books can only be deleted by admin.  Deleting a book will also delete any associated reviews
+- Unapproved Books will be highlighted in Yellow
+
+![BookList](booknook/docs/screenviews/booklist.png)
+
 ### Profile
+- view of members profile, By default will be blank, but is associated with user, so all users will ahve a profile
+- button to update profile
 
+![Profile](booknook/docs/screenviews/profile.png)
+![Update Profile](booknook/docs/screenviews/call_to_action_Profile.png)
 
-
--->
 ## Future Features
 
 I plan to implement the following in future iterations:
-- xxx.
-- xxx.
+- The ability to Update book information.
+- The ability to reccomend a book to other users.
 
 ## Technologies & Languages Used
 - HTML5 - Markup language for structuring the website
