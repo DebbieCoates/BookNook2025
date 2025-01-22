@@ -15,7 +15,10 @@
             {{ form.book_cover | as_crispy_field }}
             {{ form.part_of_series | as_crispy_field }}
             {{ form.ISBN | as_crispy_field }}
-            <button type="submit" class="btn btn-primary">Update</button>
+            <div class="d-flex justify-content-start mt-3">
+                <button type="submit" class="btn btn-primary me-2">Update</button>
+                <a href="{% url 'single_book_listing' pk=book.pk %}" class="btn btn-secondary ms-2">Cancel</a>
+            </div>
         </form>
     </div>
 </main>

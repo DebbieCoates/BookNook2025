@@ -58,7 +58,7 @@ def update_book(request, pk):
             return redirect(reverse('single_book_listing', kwargs={'pk': book.pk}))  # Use reverse with kwargs
     else:
         form = BookForm(instance=book)
-    return render(request, 'book/update_book.html', {'form': form})
+    return render(request, 'book/update_book.html', {'form': form, 'book': book})  # Pass book to template
 
 
 
@@ -150,9 +150,18 @@ class ReviewUpdateView(UpdateView):
             raise PermissionDenied("You are not allowed to edit this review.")
         return super().dispatch(request, *args, **kwargs)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        review = self.get_object()
+        book = review.book
+        context['book'] = book
+        context['author'] = book.author
+        return context
+
     def get_success_url(self):
         # Redirect back to the book's detail page after updating the review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
+
 
 class ReviewDeleteView(DeleteView):
     model = Review
