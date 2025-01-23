@@ -28,7 +28,12 @@ uncluttered interface, with clear, crisp forms and reader-friendly fonts, to ens
 
 Because I appreciate a clean and minimalistic design, I opted for white backgrounds for my HTML pages and used standard HTML fonts. The only exception to this was a background from Creative Fabrica, featuring a splash of greens to complement my hero image.
 
+![Back Image](static/images/00058.jpg)
+
 ## Project Planning
+
+Brainstorming with GitHub Copilot was instrumental in developing the foundations for this project. By leveraging Copilot's AI-driven suggestions, I was able to quickly generate ideas for key features, user stories, and database design. This collaborative approach ensured that I covered all essential aspects of the project, from user authentication to library management, while also considering future enhancements. Copilot's ability to provide context-aware recommendations significantly streamlined the planning process, allowing me to focus on creating a comprehensive and engaging platform for Book Nook users.
+
 
 ### Strategy Plan
 
@@ -48,10 +53,10 @@ I used an agile approach to project management.
 
 ### MoSCoW Prioritization
 
-- **Must-[Haves]:** User registration and login, role-based dashboards.
+- **Must-Haves:** User registration and login, role-based dashboards.
 - **Should-Haves:** Add/Edit a Book, Add/Edit  a review,  Add to wishlist
 - **Could-Haves:** Profile pictures for users 
-- **would like to have:** Book recomendatons, Top 10 books
+- **would like to have:** Book recomendatons, Top 10 books, Profile picture
 
 ## User Stories
 
@@ -281,8 +286,9 @@ All data is securely handled with Django’s security features, including:
 ## Future Features
 
 I plan to implement the following in future iterations:
-- The ability to Update book information.
 - The ability to reccomend a book to other users.
+- The ability to add a user profile picture
+- Have a top 10 book page with the top 10 books listed by user reviews/ratings
 
 ## Technologies & Languages Used
 
@@ -294,6 +300,22 @@ I plan to implement the following in future iterations:
 - Cloudinary - Cloud-based image storage solution
 - Whitenoise - For serving static files directly from Django
 - SmartDraw - for ERD
+
+## AI
+
+Throughout this project, I have leveraged the power of artificial intelligence to enhance every aspect of development. By utilizing AI-driven suggestions, I was able to brainstorm and generate innovative ideas for key features and user stories. The AI provided invaluable assistance in formatting my code, ensuring consistency and readability across the entire project.
+
+Furthermore, AI played a crucial role in checking my code for potential issues, debugging errors, and optimizing performance. This collaboration allowed me to maintain high code quality and adhere to best practices.
+
+In addition to technical support, AI offered detailed explanations and step-by-step guidance on various tasks, helping me navigate complex problems and implement solutions efficiently.
+
+Overall, the integration of AI in this project has streamlined the development process, enabling the creation of a robust and comprehensive platform that meets the needs of its users.
+
+I didn't initially grasp the importance of URLs, but with the help of AI, I finally understood their use when it was explained in simpler terms.
+
+![Books](booknook/docs/ai_screenshots/AI Explanation of urls.png)
+![Books](booknook/docs/ai_screenshots/AI Explanation.png)
+![Books](booknook/docs/ai_screenshots/AI explanation - order of doing things.png)
 
 ## Libraries & Frameworks
 - **Django** - Backend framework
@@ -417,7 +439,6 @@ I would like to extend my heartfelt gratitude to the following individuals and o
 I want to extend a heartfelt thank you to each and every one of you. We've had an environment where laughter, encouragement, and support have flourished. The camaraderie we've built has made this journey not only educational but genuinely enjoyable. The ability to have a laugh and joke has lightened the workload. When challenges arose, helping and encouraging each other made all the difference.
 
 I'm grateful to be part of such an incredible group. Thank you for being such fantastic classmates!
-
 
 - **Amy Richardson** 
 
