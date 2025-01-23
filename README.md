@@ -59,32 +59,45 @@ I used an agile approach to project management.
 
 ### MoSCoW Prioritization
 
-<!--
-- **Must-[Haves]:** User registration and login, specialist search, appointment booking, role-based dashboards.
-- **Should-Haves:** Feedback system, health tools, advanced filtering options.
-- **Could-Haves:** Profile pictures for users and specialists, messaging system.
-- **Won’t-Haves:** Full payment integration, doctor-patient messaging for now.
--->
+- **Must-[Haves]:** User registration and login, role-based dashboards.
+- **Should-Haves:** Add/Edit a Book, Add/Edit  a review,  Add to wishlist
+- **Could-Haves:** Profile pictures for users 
+- **would like to have:** Book recomendatons, Top 10 books
 
 ## User Stories
-<!--
-- As a user (patient/specialist/admin), I want to register and log in securely so that I can access my dashboard and manage my activities.
-- As a user, I want a personalized dashboard based on my role (patient, doctor, admin) so that I can access the features relevant to me.
-- As a visitor, I want to see a well-designed home page that introduces HealMate so that I understand the platform's purpose and value.
-- As a patient, I want to search for specialists by category (e.g., Dermatologist, Psychologist) so that I can find a doctor that meets my needs.
-- As a patient, I want to view available time slots for a specialist and book an appointment, so that I can get medical advice and treatment.
-- As a patient, I want to message my doctor before or after a consultation so that I can ask follow-up questions or clarify doubts.
-- As a specialist, I want to manage my schedule and view patient appointments so that I can efficiently conduct consultations.
--->
+
+- As a member, I want to log in securely so that I can access my dashboard and manage my activities.
+- As a member I want to leave a review and rating for books I have read.
+- As Admin I want to be able to add, edit and delete books and posts from the database so that I can manage the content on the platform.
+- As a visitor, I want to sign up easily, so that I can join the Book Nook.
+- As a member I can delete any reviews I have written.
+- As a member I can remove books I've read or am no longer interested in.
+- As a member I want o add books to my Wish List, so that i can save the book for future reading.
+- As a member, I want to view all the books listed
+- As a member, I would like to view the top ten rated books based on other members recommendations, in order to suggest my next read.
+- As an admin, I want to see the profile images of members, so that I can verify their identity and ensure a professional presence on the platform.
+- As a member I would like to be able t refer books to other users if I like them.
+- As an admin, I want to be able to approve any books added to the website in order to validate their appropriateness for the website.
+- As a member, I would like the ability to add books to the website so that they can be displayed and reviewed by others.
 
 ## Scope Plane
 
 The BookNook platform will include the following MVP functionalities:
 - User registration and role-based navigation.
+- view a list of all books.
+- view of list of books on users wishlist.
+- view individual books.
+- Add/update a member profile.
+- Add/update a book review.
+- (Admin only) view a list of books waiting to be approved for uploading onto the website.
+- (Admin only) view a list of All books listed on the website and delete any if required.
+
 
 ## Structural Plane
 
-The site is structured around an easy-to-use interface. The primary menu includes links to specialist searches, appointment bookings, and user profile management.
+The site is structured around an easy-to-use interface. The primary menu includes links to all features applicble to role (Member, Admin).
+
+Members 
 
 ## Skeleton & Surface Planes
 
@@ -312,25 +325,27 @@ I plan to implement the following in future iterations:
 
 All Pages have been run through the Wave Evaluation Tool, and have no errors  ( 2 sample pages below)
 
-
+![Wave Evaluation Homepage ](booknook/docs/testing/wave_evaluation_homepage.png)
+![Wave Evaluation Books](booknook/docs/testing/wave_evaluation_books.png)
 
 All code has been validated through:
+
 - **HTML**: [W3C Markup Validator](https://validator.w3.org/).
 - **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 - **Python**: PEP8 validation to ensure code quality.
 
-![HTML validator test](docs/project-images/Screenshot%202024-10-04%20164347.png)
+<!-- ![HTML validator test](docs/project-images/Screenshot%202024-10-04%20164347.png) -->
 
-![CSS validator test](docs/project-images/Screenshot%202024-10-04%20164642.png)
+![CSS validator test](booknook/docs/testing/css_validation.png)
 
-<!--
+
 ### **User Testing**
 
-- **Browser Compatibility**: The website has been tested on Chrome, Firefox, Safari, and Edge.
+- **Browser Compatibility**: The website has been tested on Chrome, 
 - **Responsiveness**: The platform has been tested on mobile, tablet, and desktop devices to ensure optimal performance.
-- **Role-Based Dashboard Testing:** Each user type (patient, specialist, admin) was tested to ensure they were directed to the correct dashboard after login. Patients were assigned to the correct group during registration, and specialists were manually added by admins. The redirection logic was thoroughly tested by registering new users and ensuring role-based access was properly applied.
-- **Automatic Assignment Testing:** Tests were conducted to verify that newly registered users are automatically assigned to the "Patient" group and that their PatientProfile was successfully created. This was confirmed through both the user interface and the Django admin panel.
+- **Role-Based Dashboard Testing:** Each user type (nonuser, member, Admin) was tested to ensure they were directed to the correct dashboard after login.
 
+<!--
 ### **Bugs**
 - ### Bug Fix #1: `DISABLE_COLLECTSTATIC` Setting Causing Heroku Deployment Failure
 
@@ -530,62 +545,56 @@ The live link for this project can be found here: <a href="https://booknook2025-
 6. Change the working directory to where you want to clone the directory.
 7. Type:
     ```bash
-    git clone https://github.com/easybulb/healmate
+    git clone https://github.com/DebbieCoates/BookNook2025
+
     ```
 8. Press Enter to create the local clone.
 
 **Note:** The difference between a clone and a fork is that with a clone, you need permission to push changes to the original repository, whereas a fork creates an entirely new project under your GitHub account.
-
-## Privacy Policy
-
-As part of my **HealMate** project, I am dedicated to ensuring that users’ personal data is handled responsibly. The following privacy practices outline how information is collected, used, and stored within this academic project.
-
-- **Data Collection**: HealMate, as a project, collects personal data during user registration and profile setup. This includes:
-  - First and Last Name
-  - Contact Information (Email)
-  - Date of Birth
-  - Bio
-
-- **Data Usage**: The information gathered is used solely for educational purposes, including:
-  - Managing user profiles.
-
-- **Data Sharing**: As this is a student project, personal data will not be shared with any third parties. It will only be used for demonstrating the functionality of the project. All information remains confidential and will not be distributed beyond the scope of the HealMate project.
-
-- **Security**: While this project is intended for educational use, I strive to implement best practices for data security using the Django framework’s built-in tools. Personal information is securely stored in the database and protected against unauthorized access.
-
-As this is an educational project, the privacy and data handling policies may evolve over time as more features are added and refined.
 
 ## Credits
 
 ### Code
 - **Django Documentation**: The official docs were invaluable in setting up the project structure and solving specific issues.
 - **Django Crispy Forms Documentation**: Used to streamline form rendering.
-- **coPiklot**: For  coding ideas
+- **coPilot**: For  coding ideas
 - **Favicon.io**: For Favicon generation.
 - **Google Fonts**: For typography.
-- **Mark Brisco** - Code Institute: For general guidance.
-- **Amy Richardson** - Code Institute: General guidance.
+- **Bootstrap 5**: for layout.
 
 ### Media
-- Icons and images sourced from **Canva** and **ChatGPT**.
-- ERD illustration was generated from **pygraphiz** - A django extension.
 
-### Additional reading/tutorials/books/blogs
-- **Django for Beginners** by William S. Vincent.
--->
+- Icons and images sourced from **Creative Fabrica** and **favicon**.
+
+### Additional tutorials/books/blogs
+
+- Django 5 By Example, by Antonieo mele
+- Codemy.com
+
 ## Acknowledgements
 
 I would like to extend my heartfelt gratitude to the following individuals and organizations whose support, guidance, and inspiration have been invaluable in the development of this project.
 
 ### Mentors and Advisors
 
-- **Amy Richardson** – Sincere gratitude to Amy, our tutor and facilitator, whose unwavering guidance and expertise were pivotal throughout this journey. Her mentorship provided the clarity and support needed to navigate challenges, ultimately elevating the quality of this project. Her dedication and encouragement made a profound impact on my progress and learning.
+- **To all my amazing classmates**
 
-- **Mark Briscoe** – A heartfelt thank you to Mark, our dedicated tutor, whose unwavering support, insightful feedback, and constructive criticism were instrumental in guiding this project to completion. His depth of knowledge and encouragement not only enhanced my understanding but also inspired me to consistently improve my work. This project would not have been the same without his invaluable mentorship.
+I want to extend a heartfelt thank you to each and every one of you. We've had an environment where laughter, encouragement, and support have flourished. The camaraderie we've built has made this journey not only educational but genuinely enjoyable. The ability to have a laugh and joke has lightened the workload. When challenges arose, helping and encouraging each other made all the difference.
 
-- **Roo MacArthur** – xxx
+I'm grateful to be part of such an incredible group. Thank you for being such fantastic classmates!
 
-- **Spencer** – xxxxx
+
+- **Amy Richardson** 
+
+I extend my deepest gratitude to Amy Richardson, my tutor and facilitator, for her unwavering support and expert guidance throughout this journey. Her mentorship provided the clarity and confidence I needed to overcome challenges, which significantly enhanced the quality of this project. Amy's dedication and encouragement have left a lasting impact on my progress and learning. Her departure is a great loss to both our class and the Code Institute, as her influence and expertise truly made a difference. Moreover, her positive attitude and steadfast support always uplifted the group – she was genuinely a ray of sunshine, always cheerful and encouraging, regardless of the circumstances. I am incredibly thankful for your commitment and for taking on the challenge of leading us with such dedication. Thank you for everything!
+
+- **Vasilica Pavaloi**
+
+A big thank you to Vasilica Pavaloi for stepping in when Amy left and guiding us through the final weeks of our project. You helped us stay focused and motivated, and got us to the finish line. Thank you for everything
+
+- **Spencer Barriball, Roo MacArthur & John Reardon** 
+
+A big thank you to Spencer, John, and Roo for all their support, helpful feedback, and constructive criticism throughout this project. Their knowledge and encouragement really pushed me to improve and kept me on track. The Coding Coach channel was an absolute lifeline. This project wouldn’t have been the same without their guidance.
 
 ### Supportive Friends and Family
 - My friends and family, especially, for their encouragement and patience during this project. Your belief in me kept me motivated and focused.
