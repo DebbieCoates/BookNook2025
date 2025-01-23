@@ -156,9 +156,13 @@ class ReviewUpdateView(UpdateView):
         context['author'] = book.author
         return context
 
+    def form_valid(self, form):
+        messages.success(self.request, 'Review has been updated successfully.')
+        return super().form_valid(form)
+
     def get_success_url(self):
-        # Redirect back to the book's detail page after updating the review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
+
 
 
 # Delete Review

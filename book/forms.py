@@ -24,7 +24,6 @@ class BookForm(forms.ModelForm):
         )
 
 
-from django import forms
 
 class ApprovalForm(forms.Form):
     book_id = forms.IntegerField(widget=forms.HiddenInput())
@@ -35,10 +34,6 @@ class ApprovalForm(forms.Form):
     approved = forms.ChoiceField(choices=APPROVAL_CHOICES, widget=forms.Select())
 
 
-
-# class ApprovalForm(forms.Form):
-#     book_id = forms.IntegerField(widget=forms.HiddenInput())
-#     approved = forms.ChoiceField(choices=[(True, 'Approve'), (False, 'Reject')])
 
 class ReviewForm(forms.ModelForm):
     RATING_CHOICES = [
