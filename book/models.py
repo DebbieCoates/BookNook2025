@@ -26,7 +26,7 @@ class Book(models.Model):
     uploadedby = models.ForeignKey(User, on_delete=models.CASCADE) 
     uploadedOn = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Fiction') 
-    
+    rejected = models.BooleanField(default=False)  # Add this field
 
     # Creates a slug if one is not supplied
     def save(self, *args, **kwargs):

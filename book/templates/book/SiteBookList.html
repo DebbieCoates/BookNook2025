@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 {% for book in books %}
-                <tr class="{% if not book.approved %}table-warning{% endif %}">
+                <tr class="{% if book.rejected %}table-danger{% elif not book.approved %}table-warning{% endif %}">
                     <td>{{ book.title }}</td>
                     <td>{{ book.author }}</td>
                     <td class="text-center">{{ book.approved }}</td>

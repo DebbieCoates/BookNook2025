@@ -15,23 +15,26 @@ from .forms import ApprovalForm
 from django.contrib import messages
 from django.urls import reverse
 
+#Pending Approvals
 @login_required
 def pending_approval(request):
     if request.method == 'POST':
         form = ApprovalForm(request.POST)
         if form.is_valid():
             book_id = form.cleaned_data['book_id']
-            approval_status = form.cleaned_data['approved']
+            approval_status = form.cleaned_data['approved'] == 'True'
             book = Book.objects.get(id=book_id)
             book.approved = approval_status
+            book.rejected = not approval_status  # Update the rejected status based on approval
             book.save()
             return redirect('pending_approval')
     else:
-        books = Book.objects.filter(approved=False)
+        books = Book.objects.filter(approved=False, rejected=False)  # Filter out rejected books
         form = ApprovalForm()
     return render(request, 'book/pending_approval.html', {'books': books, 'form': form})
 
 
+# Add Book
 @login_required
 def add_book(request):
     if request.method == 'POST':
@@ -46,8 +49,7 @@ def add_book(request):
         form = BookForm()
     return render(request, 'book/add_book.html', {'form': form})
 
-
-
+# Update Book
 @login_required
 def update_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
@@ -60,9 +62,7 @@ def update_book(request, pk):
         form = BookForm(instance=book)
     return render(request, 'book/update_book.html', {'form': form, 'book': book})  # Pass book to template
 
-
-
-
+# Delete Book
 @login_required
 def delete_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
@@ -72,14 +72,12 @@ def delete_book(request, pk):
         return redirect('SiteBookList')
     return render(request, 'book/delete_book.html', {'book': book})
 
-
-
-# FEATURED BOOKS ON MAIN PAGE
+#Book List
 class BookList(generic.ListView):
     template_name = "book/book_list.html"
     queryset = Book.objects.filter(featured=True).order_by('id')[:3]
 
-# ALL BOOKS
+# AllBooks
 class AllBooks(generic.ListView):
     template_name = "book/all_books.html"
     # queryset = Book.objects.all()
@@ -88,7 +86,7 @@ class AllBooks(generic.ListView):
     def get_queryset(self):
         return Book.objects.filter(approved=True)  # Filter to only include approved books
 
-# SINGLE BOOK LISTING
+#Single Book Listing
 class SingleBookListing(generic.DetailView):
     model = Book
     template_name = 'book/single_book_listing.html'
@@ -107,7 +105,7 @@ class SingleBookListing(generic.DetailView):
         context['reviews'] = reviews
         return context
 
-
+#  Create Review
 class ReviewCreateView(CreateView):
     model = Review
     form_class = ReviewForm
@@ -137,7 +135,7 @@ class ReviewCreateView(CreateView):
         # Redirect back to the book's detail page after creating a review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
-
+# Update Review
 class ReviewUpdateView(UpdateView):
     model = Review
     fields = ['body', 'rating']
@@ -163,6 +161,7 @@ class ReviewUpdateView(UpdateView):
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
 
+# Delete Review
 class ReviewDeleteView(DeleteView):
     model = Review
     template_name = 'book/confirm_delete.html'

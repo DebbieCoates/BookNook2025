@@ -23,9 +23,22 @@ class BookForm(forms.ModelForm):
             Submit('submit', 'Save Book')
         )
 
+
+from django import forms
+
 class ApprovalForm(forms.Form):
     book_id = forms.IntegerField(widget=forms.HiddenInput())
-    approved = forms.ChoiceField(choices=[(True, 'Approve'), (False, 'Reject')])
+    APPROVAL_CHOICES = [
+        (True, 'Approved'),
+        (False, 'Rejected')
+    ]
+    approved = forms.ChoiceField(choices=APPROVAL_CHOICES, widget=forms.Select())
+
+
+
+# class ApprovalForm(forms.Form):
+#     book_id = forms.IntegerField(widget=forms.HiddenInput())
+#     approved = forms.ChoiceField(choices=[(True, 'Approve'), (False, 'Reject')])
 
 class ReviewForm(forms.ModelForm):
     RATING_CHOICES = [

@@ -307,8 +307,12 @@ I plan to implement the following in future iterations:
 - **Balsamiq** - Wireframes and design prototypes
 
 ## **Testing**
-<!--
+
 ### **Validation Testing**
+
+All Pages have been run through the Wave Evaluation Tool, and have no errors  ( 2 sample pages below)
+
+
 
 All code has been validated through:
 - **HTML**: [W3C Markup Validator](https://validator.w3.org/).
@@ -319,6 +323,7 @@ All code has been validated through:
 
 ![CSS validator test](docs/project-images/Screenshot%202024-10-04%20164642.png)
 
+<!--
 ### **User Testing**
 
 - **Browser Compatibility**: The website has been tested on Chrome, Firefox, Safari, and Edge.
@@ -578,7 +583,7 @@ I would like to extend my heartfelt gratitude to the following individuals and o
 
 - **Mark Briscoe** – A heartfelt thank you to Mark, our dedicated tutor, whose unwavering support, insightful feedback, and constructive criticism were instrumental in guiding this project to completion. His depth of knowledge and encouragement not only enhanced my understanding but also inspired me to consistently improve my work. This project would not have been the same without his invaluable mentorship.
 
-- **Roo** – xxx
+- **Roo MacArthur** – xxx
 
 - **Spencer** – xxxxx
 

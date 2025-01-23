@@ -209,3 +209,7 @@ footer {
 .table-warning {
     background-color: #fff3cd; /* Light yellow background for warning */
 }
+
+.table-danger {
+    background-color: #f8d7da;
+}
