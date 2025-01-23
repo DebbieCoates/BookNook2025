@@ -53,6 +53,12 @@ def add_book(request):
 @login_required
 def update_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
+    
+    # Ensure the user is the uploader or an admin
+    if book.uploadedby != request.user and not request.user.is_staff:
+        messages.error(request, "You are not allowed to edit this book.")
+        return redirect(reverse('single_book_listing', kwargs={'pk': book.pk}))
+
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
@@ -61,6 +67,7 @@ def update_book(request, pk):
     else:
         form = BookForm(instance=book)
     return render(request, 'book/update_book.html', {'form': form, 'book': book})  # Pass book to template
+
 
 # Delete Book
 @login_required
@@ -136,6 +143,13 @@ class ReviewCreateView(CreateView):
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
 # Update Review
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from django.contrib import messages
+from django.views.generic.edit import UpdateView
+from .models import Review
+
 class ReviewUpdateView(UpdateView):
     model = Review
     fields = ['body', 'rating']
@@ -145,7 +159,8 @@ class ReviewUpdateView(UpdateView):
         # Ensure the user is the author of the review
         review = self.get_object()
         if review.author != request.user and not request.user.is_staff:
-            raise PermissionDenied("You are not allowed to edit this review.")
+            messages.error(request, "You are not allowed to edit this review.")
+            return redirect(reverse_lazy('single_book_listing', kwargs={'pk': review.book.id}))
         return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -162,6 +177,7 @@ class ReviewUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
+
 
 
 
