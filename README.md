@@ -24,26 +24,16 @@ Password: debbiesproject
 My inspiration for designing this book review project stems from my deep love of books. I aimed to create a clean and 
 uncluttered interface, with clear, crisp forms and reader-friendly fonts, to ensure an enjoyable and seamless experience for all book lovers.
 
-### Colour Scheme
-<!--
- In line with the healthcare theme, I chose a neutral, clean palette:
- - **Primary Color:** #17A2B8 (Navy Blue-Grey)
- - **Secondary Color:** #132B67 (Hospital Blue)
- - **Accent Color:** #333 (grey)
- - **Background:** #fff (White)
- This combination ensures clarity, accessibility, and a professional appearance, allowing for easy navigation throughout the site.
--->
-### Font
-<!--
-- For the logo and headers, I will be using **Lora**.
-- The rest of the body text and interactive elements will use **Catamaran** for its readability and clean look.
--->
+### Colour Scheme & Font
+
+Because I appreciate a clean and minimalistic design, I opted for white backgrounds for my HTML pages and used standard HTML fonts. The only exception to this was a background from Creative Fabrica, featuring a splash of greens to complement my hero image.
+
 ## Project Planning
 
-### Strategy Plane
-<!--
-The primary objective of HealMate is to bridge the gap between patients and healthcare providers. By offering an intuitive interface, users can easily search for medical professionals, book appointments, and receive necessary care without hassle.
--->
+### Strategy Plan
+
+The primary objective of Book Nook is to bridge the gap between book enthusiasts and a vast library of literature. By offering an intuitive interface, users can easily search for books, leave reviews, and add books to their wish list, creating a seamless and enjoyable reading experience.
+
 ### Site Goals
 
 - Community Engagement: Foster a sense of community among book lovers, this helps members connect, share their thoughts, and build relationships around their mutual love of books.
@@ -51,7 +41,6 @@ The primary objective of HealMate is to bridge the gap between patients and heal
 - User-Friendly Interface: Ensure the website is easy to navigate with a clean and intuitive design. This includes clear menus, and responsive design for various devices. A user-friendly interface makes it easier for members to find and engage with content.
 
 - Allows Admins to manage the website.
-
 
 ### Agile Methodologies - Project Management
 
@@ -97,7 +86,9 @@ The BookNook platform will include the following MVP functionalities:
 
 The site is structured around an easy-to-use interface. The primary menu includes links to all features applicble to role (Member, Admin).
 
-Members 
+non-member:    Home | USER LOGGON MESSAGE | Register | Login
+Members:       Home | Books | USER LOGGON MESSAGE | Add Book | Wishlist | Profile | Logout
+Admin :        Home | Books | USER LOGGON MESSAGE | Add Book | Pendig Apptovals | Book List | Wishlist | Profile | Logout
 
 ## Skeleton & Surface Planes
 
@@ -136,10 +127,6 @@ Wireframes were created for the following key pages to ensure an intuitive user 
 
 
 Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices.
-
-
-
-
 
 ## Data Models
 

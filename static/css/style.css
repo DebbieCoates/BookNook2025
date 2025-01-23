@@ -1,23 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-:root {
-
-    --title: 'Poppins', sans-serif;
-    --: 'Roboto', sans-serif;
-
-    /* colors */
-    --white: #ffffff;
-    --black: #0d0d0d;
-    --purple: #ac44f2;
-    --green: #3bd952;
-    --orange: #f29f05;
-    --coral: #f25c5c;
-    --blue: #4ce0c3;
-}
-
 /* Ensure the page takes the full height */
 html, body {
     height: 100%;
@@ -43,13 +24,7 @@ main {
     color: black;  /* Optional: Set the text color to make it readable */
 }
 
-/* Footer styles */
-footer {
-    background-color: #333; /* Set the footer background */
-    color: white;            /* Set the footer text color */
-    padding: 1rem;
-    text-align: center;
-}
+
 /* Style for the hero section */
 .hero {
     position: relative;
@@ -79,18 +54,13 @@ footer {
 }
 
 
-/* Style for the hero text */
 .hero-text h1 {
     margin: 0;
     font-size: 5rem;
-    color: var(--white);
-    font-family: var(--title);
 }
 
 .hero-text p {
     font-size: 1.5rem;
-    color: var(--white);
-    font-family: var(--main-font);
 }
 
 .custom-card, .custom-card .card-body, .custom-card .card-img-top, .custom-card .card-title, .custom-card .card-text, .custom-card .image-container {
@@ -213,3 +183,4 @@ footer {
 .table-danger {
     background-color: #f8d7da;
 }
+
