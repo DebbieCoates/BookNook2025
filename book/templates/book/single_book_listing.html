@@ -15,7 +15,8 @@
                     <img class="card-img-top img-fluid" src="{% static 'images/default.png' %}" alt="placeholder image">
                     {% else %}
 
-                    <img src="{{ book.book_cover.url }}" class="card-img-top img-fluid" alt="Book Awaiging cover" onerror="this.onerror=null; this.src='/static/images/Book Awaiging image2.png';">
+                    <img src="{{ book.book_cover.url }}" class="card-img-top img-fluid" alt="Book Awaiging cover"
+                        onerror="this.onerror=null; this.src='/static/images/Book Awaiging image2.png';">
 
                     {% endif %}
 
@@ -28,7 +29,8 @@
                     <p>{{ book.synopsis }}</p>
                 </div>
                 <div>
-                    <a href="{% url 'review_add' %}?book_id={{ book.id }}" class="btn btn-secondary btn-sm">Review this Book</a>
+                    <a href="{% url 'review_add' %}?book_id={{ book.id }}" class="btn btn-secondary btn-sm">Review this
+                        Book</a>
                     <a href="{% url 'add_to_wishlist' book.id %}" class="btn btn-secondary btn-sm">Add to Wishlist</a>
 
                     <a href="{% url 'update_book' pk=book.pk %}" class="btn btn-secondary btn-sm">Update Book</a>
@@ -47,9 +49,9 @@
                         <div class="rating">
                             {% for i in range %}
                             {% if i <= review.rating %}
-                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
                             {% else %}
-                            <i class="far fa-star"></i> 
+                            <i class="far fa-star"></i>
                             {% endif %}
                             {% endfor %}
                         </div>
@@ -64,7 +66,7 @@
                     {% endfor %}
                 </div>
             </div>
-        </div> 
+        </div>
 
     </div>
 </main>

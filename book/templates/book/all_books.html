@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
-<!-- PAGE SHOWING ALL BOOKS -->
-
 {% block content %}
 {% if user.is_authenticated %}
 <main>
@@ -33,7 +30,6 @@
             {% endfor %}
         </div>
 
-        
 
         <!-- Pagination controls -->
         <nav aria-label="Page navigation">
@@ -62,7 +58,7 @@
             </ul>
         </nav>
 
-       {% else %}
+        {% else %}
         <p class="text-center">No books available at the moment.</p>
         {% endif %}
     </div>

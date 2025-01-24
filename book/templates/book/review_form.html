@@ -6,14 +6,16 @@
 <main>
     <div class="container mt-5 thin-black-border">
         <h1 class="display-3">{% if view == "create" %}Review Book{% else %}Update Review{% endif %}</h1>
-        <h2>Review of {{ book.title }} by {% if author.name %}{{ author.name }}{% else %}author unspecified{% endif %}</h2>
+        <h2>Review of {{ book.title }} by {% if author.name %}{{ author.name }}{% else %}author unspecified{% endif %}
+        </h2>
 
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.body|as_crispy_field }}
             {{ form.rating|as_crispy_field }}
             <div class="d-flex justify-content-start mt-3">
-                <button type="submit" class="btn btn-primary me-2">{% if view == "create" %}Submit Review{% else %}Update Review{% endif %}</button>
+                <button type="submit" class="btn btn-primary me-2">{% if view == "create" %}Submit
+                    Review{% else %}Update Review{% endif %}</button>
                 <a href="{% url 'single_book_listing' pk=book.pk %}" class="btn btn-secondary ms-2">Cancel</a>
             </div>
         </form>
