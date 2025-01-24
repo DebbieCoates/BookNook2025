@@ -335,20 +335,28 @@ I didn't initially grasp the importance of URLs, but with the help of AI, I fina
 
 ### **Validation Testing**
 
-All Pages have been run through the Wave Evaluation Tool, and have no errors  ( 2 sample pages below)
+All Pages have been run through the Wave Evaluation Tool, W3 HTML Validator and W3 CSS Validator and have no errors  ( 2 sample pages below)
 
-![Wave Evaluation Homepage ](booknook/docs/testing/wave_evaluation_homepage.png)
-![Wave Evaluation Books](booknook/docs/testing/wave_evaluation_books.png)
+- ![Wave Evaluation Homepage ](booknook/docs/testing/wave_evaluation_homepage.png)
+- ![Wave Evaluation Books](booknook/docs/testing/wave_evaluation_books.png)
 
-All code has been validated through:
+ **HTML**: [W3C Markup Validator](https://validator.w3.org/).
 
-- **HTML**: [W3C Markup Validator](https://validator.w3.org/).
-- **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
-- **Python**: PEP8 validation to ensure code quality.
+- ![HTML Validation](booknook/docs/html_validation/html_validation_add_review.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_all_books.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_edit_review.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_Home.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_member_profile.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_single_book.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_site_book_list.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_update_member_profile.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_wishlist.png)
 
-<!-- ![HTML validator test](docs/project-images/Screenshot%202024-10-04%20164347.png) -->
+ **CSS**: [W3C Markup Validator](https://jigsaw.w3.org/css-validator/).
 
-![CSS validator test](booknook/docs/testing/css_validation.png)
+- ![HTML Validation](booknook/docs/testing/css_validation.png)
+
+**Python**: PEP8 validation to ensure code quality.
 
 
 ### **User Testing**
