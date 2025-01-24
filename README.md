@@ -95,6 +95,14 @@ non-member:    Home | USER LOGGON MESSAGE | Register | Login
 Members:       Home | Books | USER LOGGON MESSAGE | Add Book | Wishlist | Profile | Logout
 Admin :        Home | Books | USER LOGGON MESSAGE | Add Book | Pendig Apptovals | Book List | Wishlist | Profile | Logout
 
+
+## Future Features
+
+I plan to implement the following in future iterations:
+- The ability to reccomend a book to other users.
+- The ability to add a user profile picture
+- Have a top 10 book page with the top 10 books listed by user reviews/ratings
+
 ## Skeleton & Surface Planes
 
 ### Wireframes
@@ -256,7 +264,7 @@ All data is securely handled with Django’s security features, including:
 
 ### Add Book
 
-- Add Biik Sectiion which enables members & Admin to upload Books onto the website
+- Add Book Sectiion which enables members & Admin to upload Books onto the website
 - Books wont show on theWebsite until approved by Admin.
 
 ![Books](booknook/docs/screenviews/add_book.png)
@@ -273,22 +281,17 @@ All data is securely handled with Django’s security features, including:
 - Admin view of All Books
 - Books can only be deleted by admin.  Deleting a book will also delete any associated reviews
 - Unapproved Books will be highlighted in Yellow
+- Rejected Books will be highlighted in Red
 
 ![BookList](booknook/docs/screenviews/booklist.png)
 
 ### Profile
-- view of members profile, By default will be blank, but is associated with user, so all users will ahve a profile
-- button to update profile
+- view of members profile, By default will be blank, but is associated with user, so all users will have a profile.
+- Button to update profile
 
 ![Profile](booknook/docs/screenviews/profile.png)
 ![Update Profile](booknook/docs/screenviews/call_to_action_Profile.png)
 
-## Future Features
-
-I plan to implement the following in future iterations:
-- The ability to reccomend a book to other users.
-- The ability to add a user profile picture
-- Have a top 10 book page with the top 10 books listed by user reviews/ratings
 
 ## Technologies & Languages Used
 
@@ -313,9 +316,9 @@ Overall, the integration of AI in this project has streamlined the development p
 
 I didn't initially grasp the importance of URLs, but with the help of AI, I finally understood their use when it was explained in simpler terms.
 
-![Books](booknook/docs/ai_screenshots/AI Explanation of urls.png)
-![Books](booknook/docs/ai_screenshots/AI Explanation.png)
-![Books](booknook/docs/ai_screenshots/AI explanation - order of doing things.png)
+![Books](booknook/docs/ai_screenshots/AI _Order_of_doing_Things.png)
+![Books](booknook/docs/ai_screenshots/AI_Explanation.png)
+![Books](booknook/docs/ai_screenshots/AI_URL_explanation.png)
 
 ## Libraries & Frameworks
 - **Django** - Backend framework
