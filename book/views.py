@@ -142,14 +142,6 @@ class ReviewCreateView(CreateView):
         # Redirect back to the book's detail page after creating a review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
-# Update Review
-from django.core.exceptions import PermissionDenied
-from django.contrib.auth.decorators import login_required
-from django.urls import reverse_lazy
-from django.contrib import messages
-from django.views.generic.edit import UpdateView
-from .models import Review
-
 class ReviewUpdateView(UpdateView):
     model = Review
     fields = ['body', 'rating']
@@ -178,9 +170,6 @@ class ReviewUpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
-
-
-
 # Delete Review
 class ReviewDeleteView(DeleteView):
     model = Review
@@ -203,6 +192,7 @@ class ReviewDeleteView(DeleteView):
         # Redirect back to the book's detail page after deleting the review
         return reverse_lazy('single_book_listing', kwargs={'pk': self.object.book.id})
 
+@login_required
 def SiteBookList(request):
     books = Book.objects.all().annotate(review_count=Count('reviews'))
     book_count = books.count()
