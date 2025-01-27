@@ -6,14 +6,9 @@
 
 This project is part of the Code Institute's Full-Stack Developer course and focuses on the Django framework, database manipulation, and CRUD functionality.
 
-<!-- 
-[Live project](https://book-club-acf9649c2594.herokuapp.com/)
+[Live project](https://booknook2025-4c3ce9e8c031.herokuapp.com/)
 
-[Django administration](https://book-club-acf9649c2594.herokuapp.com/admin/) -->
-
-Admin Username: bookend
-
-Password: debbiesproject
+[Django administration](https://booknook2025-4c3ce9e8c031.herokuapp.com/admin) 
 
 [Project Board](https://github.com/users/DebbieCoates/projects/13)
 
@@ -21,8 +16,7 @@ Password: debbiesproject
 
 ### Design Inspiration
 
-My inspiration for designing this book review project stems from my deep love of books. I aimed to create a clean and 
-uncluttered interface, with clear, crisp forms and reader-friendly fonts, to ensure an enjoyable and seamless experience for all book lovers.
+My inspiration for designing this book review project stems from my deep love of books. I aimed to create a clean and uncluttered interface, with clear, crisp forms and reader-friendly fonts, to ensure an enjoyable and seamless experience for all book lovers.
 
 ### Colour Scheme & Font
 
@@ -49,14 +43,50 @@ The primary objective of Book Nook is to bridge the gap between book enthusiasts
 
 ### Agile Methodologies - Project Management
 
-I used an agile approach to project management. 
+I adopted an agile approach to project management, emphasizing flexibility, collaboration, and customer-centricity. My strategy included regular iterations, continuous feedback loops, and adaptive planning to ensure that project objectives were met efficiently and effectively.
 
 ### MoSCoW Prioritization
 
-- **Must-Haves:** User registration and login, role-based dashboards.
-- **Should-Haves:** Add/Edit a Book, Add/Edit  a review,  Add to wishlist
-- **Could-Haves:** Profile pictures for users 
-- **would like to have:** Book recomendatons, Top 10 books, Profile picture
+**Must-Haves:** 
+
+**User Registration and Login:** Essential for accessing the platform and managing user accounts.
+**Role-Based Dashboards:** Customized views and functionalities based on user roles to enhance user experience and security.
+
+**Should-Haves:** 
+
+**Add/Edit a Book:** Users should have the ability to add new books and edit existing ones in the library.
+
+**Add/Edit a Review:** Users should be able to provide feedback on books and edit their reviews, fostering community engagement.
+
+**Add to Wishlist:** Users should be able to create a wishlist of books they are interested in, enabling easy access later.
+
+**Could-Haves:** 
+
+**Profile Pictures for Users:** Adding profile pictures to user accounts for a more personalized and engaging experience.
+
+**would like to have:** 
+
+**Book Recommendations:** Implementing a system to suggest books based on user preferences and past interactions.
+
+**Top 10 Books:** Featuring a list of the top 10 books to guide users towards popular or highly-rated options.
+
+**Profile Picture:** Although mentioned previously, further refining the profile picture feature to include advanced customization options.
+
+
+## Retrospectives
+
+In reflecting on this project, several key insights and learnings emerged that will inform my future work.
+
+**Breaking Down User Stories:**
+
+- In hindsight, I would have broken my user stories into smaller chunks. This approach would have facilitated more manageable and incremental progress, allowing for quicker iterations and easier identification of potential issues early in the development process.
+
+**Understanding URLs:**
+
+- Grasping the concept and significance of URLs took considerable time. It wasn't until I sought assistance from AI that I truly comprehended their importance and functionality. This experience underlined the value of seeking external help when faced with challenging concepts and highlighted the benefit of AI as a powerful learning tool.
+
+These reflections will guide my continuous improvement efforts, ensuring that future projects benefit from the lessons learned during this one.
+
 
 ## User Stories
 
@@ -95,13 +125,30 @@ non-member:    Home | USER LOGGON MESSAGE | Register | Login
 Members:       Home | Books | USER LOGGON MESSAGE | Add Book | Wishlist | Profile | Logout
 Admin :        Home | Books | USER LOGGON MESSAGE | Add Book | Pendig Apptovals | Book List | Wishlist | Profile | Logout
 
+## MVP  Features
+
+**User Registration and Login:** Secure authentication for accessing user-specific content.
+
+**Role-Based Dashboards:** Personalized dashboards based on user roles.
+
+**Add/Edit a Book:** Functionality for users to add new books to the library and edit existing entries.
+
+**Add/Edit a Review:** Users can provide feedback on books and update their reviews.
+
+**Add to Wishlist:** Allows users to create a wishlist of books they are interested in.
+
+**Image Storage with Cloudinary:** Utilized Cloudinary to store and manage all user-uploaded images, ensuring efficient image hosting, transformation, and delivery.
 
 ## Future Features
 
 I plan to implement the following in future iterations:
-- The ability to reccomend a book to other users.
-- The ability to add a user profile picture
-- Have a top 10 book page with the top 10 books listed by user reviews/ratings
+
+**Profile Pictures for Users:** Personalized profile pictures to enhance user engagement.
+
+**Book Recommendations:** Suggests books to users based on their preferences and past interactions.
+
+**Top 10 Books:** Displays a list of the top 10 books for easy discovery of popular or highly-rated books.
+
 
 ## Skeleton & Surface Planes
 
@@ -320,6 +367,151 @@ I didn't initially grasp the importance of URLs, but with the help of AI, I fina
 ![Books](booknook/docs/ai_screenshots/AI_Explanation.png)
 ![Books](booknook/docs/ai_screenshots/AI_URL_explanation.png)
 
+I used AI (CoPilot) to create tests, these tests can be found in my tests.py file for each app.,  All tests ran successfully.
+
+![Books](booknook/docs/testing/book_ai-test.png)
+![Books](booknook/docs/testing/wishlist_ai_test.png)
+![Books](booknook/docs/testing/member_ai_test.png)
+
+
+## Libraries & Frameworks
+- **Django** - Backend framework
+- **Django Crispy Forms** - For elegant form rendering
+- **Cloudinary** - Media storage
+- **Whitenoise** - For serving static files
+
+## Tools & Programs
+- **GitHub Projects** - Project management and tracking
+- **Heroku** - Deployment and hosting
+- **Balsamiq** - Wireframes and design prototypes
+
+## **Testing**
+
+### **Validation Testing**
+
+All Pages have been run through the Wave Evaluation Tool, W3 HTML Validator and W3 CSS Validator and have no errors  ( 2 sample pages below)
+
+- ![Wave Evaluation Homepage ](booknook/docs/testing/wave_evaluation_homepage.png)
+- ![Wave Evaluation Books](booknook/docs/testing/wave_evaluation_books.png)
+
+ **HTML**: [W3C Markup Validator](https://validator.w3.org/).
+
+- ![HTML Validation](booknook/docs/html_validation/html_validation_add_review.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_all_books.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_edit_review.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_Home.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_member_profile.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_single_book.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_site_book_list.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_update_member_profile.png)
+- ![HTML Validation](booknook/docs/html_validation/html_validation_wishlist.png)
+
+ **CSS**: [W3C Markup Validator](https://jigsaw.w3.org/css-validator/).
+
+- ![HTML Validation](booknook/docs/testing/css_validation.png)
+
+**Python**: PEP8 validation to ensure code quality.
+
+
+## **User Testing**
+
+- **Browser Compatibility**: The website has been tested on Chrome Desktop, MS Edge, iphone, ipad and Android Phone
+- **Responsiveness**: The platform has been tested on mobile, tablet, and desktop devices to ensure optimal performance.
+- **Role-Based Dashboard Testing:** Each user type (nonuser, member, Admin) was tested to ensure they were directed to the correct dashboard after login.
+
+## Deployment
+
+All code for this project was written in Gitpod as the integrated development environment. GitHub was used for version control, and the application was deployed to Heroku from GitHub.
+
+### Pre-Deployment
+
+To ensure a successful deployment to Heroku, the following practices are to be followed (Experience from previous Django projects):
+
+- **Requirements File:** The `requirements.txt` file must be kept up to date to ensure all imported Python modules are configured correctly for Heroku.
+- **Procfile:** A `Procfile` was added to configure the application as a Gunicorn web app on Heroku.
+- **Allowed Hosts:** In `settings.py`, the `ALLOWED_HOSTS` list was configured to include the Heroku app name and `localhost`. Example format:
+    ```python
+    ALLOWED_HOSTS = ['your-app-name.herokuapp.com', 'localhost']
+    ```
+- **Environment Variables:** All sensitive data such as the `DATABASE_URL`, `CLOUDINARY_URL`, and `SECRET_KEY` were added to the `.env` file, which is ignored by Git using `.gitignore`. These variables are added to Heroku manually through the Config Vars section.
+
+### Deploying with Heroku
+
+The steps for deploying to Heroku are as follows (Experience from previous Django projects):
+
+1. **Create New App:** Log in to your Heroku account and click on the "Create New App" button.
+2. **App Name:** Choose a unique name for your app.
+3. **Select Region:** Choose the appropriate region (Europe was selected for this project).
+4. **Create App:** Click the "Create App" button to proceed.
+5. **Deployment Method:** In the "Deploy" tab, select GitHub as the deployment method.
+6. **Connect to GitHub:** Search for the repository name and click "Connect".
+7. **Manual or Automatic Deployment:** Select either manual or automatic deployment. Ensure the main branch is selected for deployment.
+8. **Config Vars:** In the "Settings" tab, click "Reveal Config Vars" and input the required environment variables.
+9. **Buildpack:** Select Node.js and Python as the buildpacks for your project.
+10. **Deploy:** Once the configuration is complete, click the "Deploy Branch" button. After successful deployment, a "View" button will appear to take you to the live site.
+
+The live link for this project can be found here: <a href="https://booknook2025-4c3ce9e8c031.herokuapp.com/" target="_blank">BookNook</a>
+
+### Fork this Repository
+
+1. Go to the GitHub repository.
+2. Click the "Fork" button in the upper right-hand corner.
+
+### Clone this Repository
+
+1. Go to the GitHub repository.
+2. Click the "Code" button at the top of the page.
+3. Choose between 'HTTPS', 'SSH', or 'GitHub CLI' depending on your preference.
+4. Click the copy button to copy the URL.
+5. Open Git Bash.
+6. Change the working directory to where you want to clone the directory.
+7. Type:
+    ```bash
+    git clone https://github.com/DebbieCoates/BookNook2025
+
+    ```
+8. Press Enter to create the local clone.
+
+**Note:** The difference between a clone and a fork is that with a clone, you need permission to push changes to the original repository, whereas a fork creates an entirely new project under your GitHub account.
+
+![Profile](booknook/docs/screenviews/profile.png)
+![Update Profile](booknook/docs/screenviews/call_to_action_Profile.png)
+
+
+## Technologies & Languages Used
+
+- HTML5 - Markup language for structuring the website
+- CSS3 - Styling language for designing the layout and visual aesthetics
+- JavaScript - For interactivity and DOM manipulation on the frontend
+- Python (Django) - Backend web framework for server-side logic and management
+- PostgreSQL - Database management system for storing data
+- Cloudinary - Cloud-based image storage solution
+- Whitenoise - For serving static files directly from Django
+- SmartDraw - for ERD
+
+## AI
+
+Throughout this project, I have leveraged the power of artificial intelligence to enhance every aspect of development. By utilizing AI-driven suggestions, I was able to brainstorm and generate innovative ideas for key features and user stories. The AI provided invaluable assistance in formatting my code, ensuring consistency and readability across the entire project.
+
+Furthermore, AI played a crucial role in checking my code for potential issues, debugging errors, and optimizing performance. This collaboration allowed me to maintain high code quality and adhere to best practices.
+
+In addition to technical support, AI offered detailed explanations and step-by-step guidance on various tasks, helping me navigate complex problems and implement solutions efficiently.
+
+Overall, the integration of AI in this project has streamlined the development process, enabling the creation of a robust and comprehensive platform that meets the needs of its users.
+
+I didn't initially grasp the importance of URLs, but with the help of AI, I finally understood their use when it was explained in simpler terms.
+
+![Books](booknook/docs/ai_screenshots/AI _Order_of_doing_Things.png)
+![Books](booknook/docs/ai_screenshots/AI_Explanation.png)
+![Books](booknook/docs/ai_screenshots/AI_URL_explanation.png)
+
+I used AI (CoPilot) to create tests, these tests can be found in my tests.py file for each app.,  All tests ran successfully.
+
+![Books](booknook/docs/testing/book_ai-test.png)
+![Books](booknook/docs/testing/wishlist_ai_test.png)
+![Books](booknook/docs/testing/member_ai_test.png)
+
+
 ## Libraries & Frameworks
 - **Django** - Backend framework
 - **Django Crispy Forms** - For elegant form rendering
@@ -420,6 +612,8 @@ The live link for this project can be found here: <a href="https://booknook2025-
 
 **Note:** The difference between a clone and a fork is that with a clone, you need permission to push changes to the original repository, whereas a fork creates an entirely new project under your GitHub account.
 
+
+
 ## Credits
 
 ### Code
@@ -469,6 +663,7 @@ A big thank you to Spencer, John, and Roo for all their support, helpful feedbac
 ### Academic Institutions
 - **Code Institute** – Thank you for providing the learning environment and resources that made this project possible. I am especially grateful to the professors and staff at Code Institute for their valuable insights.
 
+
+
 ### Final Note
 This project would not have been possible without the support, advice, and inspiration of each individual and organization mentioned. Thank you for being a part of this journey.
-
