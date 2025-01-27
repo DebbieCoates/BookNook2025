@@ -387,6 +387,12 @@ I used AI (CoPilot) to create tests, these tests can be found in my tests.py fil
 
 ## **Testing**
 
+### **Accessability testing **
+
+I tested my app using Google's Lighthouse tool to ensure it meets high accessibility standards. Lighthouse evaluates web pages against the Web Content Accessibility Guidelines (WCAG), checking for common issues such as proper use of headings, sufficient color contrast, and alternative text for images. By achieving a commendable accessibility score of 98%, I've demonstrated my commitment to making the app accessible to users of all abilities, creating a more inclusive experience for everyone.
+
+- ![Lighthouse](booknook/docs/testing/lighthouse test.png)
+
 ### **Validation Testing**
 
 All Pages have been run through the Wave Evaluation Tool, W3 HTML Validator and W3 CSS Validator and have no errors  ( 2 sample pages below)
