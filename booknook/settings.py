@@ -89,7 +89,6 @@ MIDDLEWARE = [
 ]
 
 
-
 from django.contrib.messages import constants as message_constants
 
 ROOT_URLCONF = 'booknook.urls'
